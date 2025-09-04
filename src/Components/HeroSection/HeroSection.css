@@ -12,7 +12,7 @@ body.light .btn {
 /* Dark theme */
 body.dark .section {
   background-color: #deddcf;
-  background: linear-gradient(#deddcf, #d2cdb7);
+  background: #deddcf;
 }
 
 body.dark .btn {

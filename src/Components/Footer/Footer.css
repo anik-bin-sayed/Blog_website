@@ -2,15 +2,52 @@
 body.light .input {
   border: 1px solid black;
 }
+
+body.light .footer-link {
+  color: black;
+  transition: all 0.3s;
+}
+
+body.light .footer-link:hover {
+  color: #7e6b50;
+}
+
+body.light .footer-social-icon {
+  color: black;
+  transition: all 0.3s;
+}
+
+body.light .footer-social-icon:hover {
+  color: #7e6b50;
+}
+
 /* dark theme */
 body.dark .input {
   border: 1px solid #7e6b50;
 }
-body.light .logo h1 {
+body.dark .logo h1 {
   color: black;
 }
-body.light .logo h1 span {
+body.dark .logo h1 span {
   color: #7e6b50;
+}
+
+body.dark .footer-link {
+  color: #7e6b50;
+  transition: all 0.3s;
+}
+
+body.dark .footer-link:hover {
+  color: black;
+}
+
+body.dark .footer-social-icon {
+  color: #7e6b50;
+  transition: all 0.3s;
+}
+
+body.dark .footer-social-icon:hover {
+  color: black;
 }
 
 /* blue theme */
@@ -24,6 +61,24 @@ body.blue .logo h1 span {
   color: blue;
 }
 
+body.blue .footer-link {
+  color: blue;
+  transition: all 0.3s;
+}
+
+body.blue .footer-link:hover {
+  color: black;
+}
+
+body.blue .footer-social-icon {
+  color: blue;
+  transition: all 0.3s;
+}
+
+body.blue .footer-social-icon:hover {
+  color: black;
+}
+
 /* crimson theme */
 body.crimson .input {
   border: 1px solid crimson;
@@ -34,4 +89,22 @@ body.crimson .logo h1 {
 }
 body.crimson .logo h1 span {
   color: crimson;
+}
+
+body.crimson .footer-link {
+  color: crimson;
+  transition: all 0.3s;
+}
+
+body.crimson .footer-link:hover {
+  color: black;
+}
+
+body.crimson .footer-social-icon {
+  color: crimson;
+  transition: all 0.3s;
+}
+
+body.crimson .footer-social-icon:hover {
+  color: black;
 }

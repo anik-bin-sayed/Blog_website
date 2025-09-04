@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { useTheme } from "../ThemeProvider.jsx";
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { CiFacebook } from "react-icons/ci";

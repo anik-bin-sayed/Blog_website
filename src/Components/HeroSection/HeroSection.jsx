@@ -23,7 +23,7 @@ export default function HeroSection() {
     ];
     return (<>
         {/* <section className="bg-[#deddcf]"> */}
-        <section className="section py-20">
+        <section className="section pt-20">
 
             <div className="w-[90%] md:w-[80%] mx-auto flex flex-col items-center text-center py-20 space-y-6">
                 <h2 className="title flex items-center gap-2 text-2xl uppercase tracking-wider text-thin italic ">
@@ -70,7 +70,7 @@ export default function HeroSection() {
 
 
                 {/* Headline */}
-                <div className="flex flex-col md:flex-col lg:flex-col items-center justify-center py-12 lg:py-20 px-4 lg:px-0">
+                <div className="flex flex-col md:flex-col lg:flex-col items-center justify-center pt-12 lg:py-20 px-4 lg:px-0">
                     {/* Heading */}
                     <div className="socialIconsTitle w-full flex items-center justify-center mb-10 lg:mb-0">
                         <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold italic leading-tight text-gray-800 text-center lg:text-left">
@@ -79,7 +79,7 @@ export default function HeroSection() {
                     </div>
 
                     {/* Social Stats */}
-                    <div className="w-full flex items-center justify-center lg:py-10">
+                    <div className="w-full flex items-center justify-center lg:pt-10">
                         <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-5 gap-10 text-center">
                             {stats.map((stat, index) => (
                                 <div
