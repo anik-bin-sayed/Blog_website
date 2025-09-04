@@ -1,0 +1,37 @@
+/* light theme */
+body.light .input {
+  border: 1px solid black;
+}
+/* dark theme */
+body.dark .input {
+  border: 1px solid #7e6b50;
+}
+body.light .logo h1 {
+  color: black;
+}
+body.light .logo h1 span {
+  color: #7e6b50;
+}
+
+/* blue theme */
+body.blue .input {
+  border: 1px solid blue;
+}
+body.blue .logo h1 {
+  color: black;
+}
+body.blue .logo h1 span {
+  color: blue;
+}
+
+/* crimson theme */
+body.crimson .input {
+  border: 1px solid crimson;
+}
+
+body.crimson .logo h1 {
+  color: black;
+}
+body.crimson .logo h1 span {
+  color: crimson;
+}

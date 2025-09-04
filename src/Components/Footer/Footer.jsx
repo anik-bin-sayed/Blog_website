@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
 
-import img1 from '../assets/Footer/footer-01.jpg'
-import img2 from '../assets/Footer/footer-02.jpg'
-import img3 from '../assets/Footer/footer-03.jpg'
-import img4 from '../assets/Footer/footer-04.jpg'
+import img1 from '../../assets/Footer/footer-01.jpg'
+import img2 from '../../assets/Footer/footer-02.jpg'
+import img3 from '../../assets/Footer/footer-03.jpg'
+import img4 from '../../assets/Footer/footer-04.jpg'
 import { Link } from 'react-router-dom';
+
+import './Footer.css'
 
 const Footer = () => {
     const [email, setEmail] = useState("");
@@ -36,7 +38,7 @@ const Footer = () => {
     }
 
     return (
-        <div className="bg-gradient-to-b from-[#deddcf] to-[#d2cdb7]">
+        <section className="section border-t border-gray-100">
             <div className="w-[80%] mx-auto pb-20">
                 <p className="text-center text-xl md:text-2xl font-semibold py-20 ">
                     Follow me on Instagram
@@ -118,12 +120,12 @@ const Footer = () => {
                                 placeholder="Enter your email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="w-full bg-[#deddcf] px-4 py-3 border border-gray-600 rounded-md mb-4 outline-none focus:border-[#93825e] focus:ring-1 focus:ring-[#93825e] transition"
+                                className="input w-full px-4 py-3 rounded-md mb-4 outline-none"
                             />
 
                             {error && <span className="text-red-500 text-sm mb-2">{error}</span>}
 
-                            <button className="w-full bg-[#93825e] py-3 text-white rounded-md font-medium hover:bg-[#7e6b50] transition duration-200 cursor-pointer">
+                            <button className="btn w-full px-3 py-2 rounded hover:bg-gray-100 cursor-pointer">
                                 Subscribe
                             </button>
                         </form>
@@ -135,12 +137,12 @@ const Footer = () => {
             </div>
 
             {/* bottom footer */}
-            <div className='bg-[#deddcf] mt-2'>
+            <div className='mt-2 border-t border-gray-100'>
                 <div className='w-[80%] mx-auto flex flex-col md:flex-row lg:flex-row gap-3 items-center justify-between py-10'>
 
                     {/* Brand Section */}
                     <div>
-                        <Link to="/" className="text-decoration-none">
+                        <Link to="/" className="logo text-decoration-none">
                             <h1 className="text-2xl font-bold italic">
                                 Shofia <span className="font-normal text-yellow-600">Ellis</span>
                             </h1>
@@ -167,7 +169,7 @@ const Footer = () => {
 
                 </div>
             </div>
-        </div>
+        </section>
 
 
     )

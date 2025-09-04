@@ -1,0 +1,79 @@
+/* light theme */
+body.light .section {
+  background-color: #fff;
+}
+
+body.light .btn {
+  background-color: #7e6b50;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+/* Dark theme */
+body.dark .section {
+  background-color: #deddcf;
+  background: linear-gradient(#deddcf, #d2cdb7);
+}
+
+body.dark .btn {
+  background-color: #7e6b50;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+body.dark .title span {
+  color: #7e6b50;
+}
+
+body.dark .socialIconsTitle span {
+  color: #7e6b50;
+}
+
+body.dark .socialIcons {
+  color: #7e6b50;
+}
+
+/* blue theme */
+body.blue .section {
+  background-color: #e6f7ff;
+}
+
+body.blue .title span {
+  color: blue;
+}
+body.blue .btn {
+  border: 1px solid blue;
+  background-color: blue;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+body.blue .socialIconsTitle span {
+  color: blue;
+}
+
+body.blue .socialIcons {
+  color: blue;
+}
+
+/* Crimson theme */
+body.crimson .section {
+  background-color: #feede7;
+}
+
+body.crimson .title span {
+  color: crimson;
+}
+body.crimson .btn {
+  background-color: crimson;
+  color: #fff;
+  transition: all 0.3s;
+}
+
+body.crimson .socialIconsTitle span {
+  color: crimson;
+}
+
+body.crimson .socialIcons {
+  color: crimson;
+}
