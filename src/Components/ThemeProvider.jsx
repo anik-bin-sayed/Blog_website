@@ -1,21 +1,17 @@
-// ThemeProvider.jsx
 import React, { createContext, useState, useContext, useEffect } from "react";
 
-// 1️⃣ Create context
 const ThemeContext = createContext();
 
-// 2️⃣ ThemeProvider component
 export const ThemeProvider = ({ children }) => {
-    const [theme, setTheme] = useState("light"); // default theme
+    const [theme, setTheme] = useState("light");
 
-    // Load saved theme from localStorage on mount
     useEffect(() => {
         const savedTheme = localStorage.getItem("theme");
         if (savedTheme) {
             setTheme(savedTheme);
-            document.body.className = savedTheme; // <-- apply class to <body>
+            document.body.className = savedTheme;
         } else {
-            document.body.className = theme; // apply default theme
+            document.body.className = theme;
         }
     }, []);
 

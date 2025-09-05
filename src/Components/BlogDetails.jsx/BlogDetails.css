@@ -1,0 +1,50 @@
+body.light .blog {
+  background-color: #fff;
+}
+
+body.dark .blog {
+  background-color: #d0cab5;
+}
+
+body.blue .blog {
+  background-color: #fff;
+}
+
+body.crimson .blog {
+  background-color: #fff;
+}
+
+/* Related Blog */
+
+body.light .related-blogs {
+  background-color: #fff;
+}
+
+body.dark .related-blogs {
+  background-color: #d0cab5;
+}
+
+body.blue .related-blogs {
+  background-color: #fff;
+}
+
+body.crimson .related-blogs {
+  background-color: #fff;
+}
+
+/* Comment section */
+body.light .comment-section {
+  background-color: #fff;
+}
+
+body.dark .comment-section {
+  background-color: #d0cab5;
+}
+
+body.blue .comment-section {
+  background-color: #fff;
+}
+
+body.crimson .comment-section {
+  background-color: #fff;
+}

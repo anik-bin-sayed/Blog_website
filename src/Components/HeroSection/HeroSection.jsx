@@ -17,12 +17,10 @@ export default function HeroSection() {
     const stats = [
         { icon: <FaInstagram />, count: "12K+" },
         { icon: <FaWifi />, count: "8K+" },
-        { icon: <FaInstagram />, count: "12K+" },
         { icon: <FaPinterestP />, count: "5K+" },
         { icon: <FaLinkedinIn />, count: "3K+" },
     ];
     return (<>
-        {/* <section className="bg-[#deddcf]"> */}
         <section className="section pt-20">
 
             <div className="w-[90%] md:w-[80%] mx-auto flex flex-col items-center text-center py-20 space-y-6">

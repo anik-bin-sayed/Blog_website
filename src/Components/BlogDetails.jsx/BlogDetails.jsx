@@ -1,17 +1,25 @@
 import React from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
+
 import { featureBlogs } from "../../data/FeatureBlogs";
 
 import { BsArrowLeftShort } from "react-icons/bs";
 import { BsArrowRightShort } from "react-icons/bs";
 
+import './BlogDetails.css'
+import RelatedBlogs from "./RelatedBlogs";
+import CommentSection from "./CommentSection";
+
 const BlogDetails = () => {
     const { id } = useParams();
-    const blog = featureBlogs.find(b => b.id.toString() === id);
+    const blogs = [...featureBlogs];
+    // const blogs = [...featureBlogs, ...allBlogs];
+    const blog = blogs.find(b => b.id.toString() === id);
+    const relatedBlogs = blogs.filter(b => b.id.toString() !== id).slice(0, 3);
 
     const navigate = useNavigate()
 
-    const totalBlogs = featureBlogs.length;
+    const totalBlogs = blogs.length;
 
     // 🔹 Previous button logic
     const handlePrevious = () => {
@@ -26,8 +34,8 @@ const BlogDetails = () => {
 
     return (
         <section className="section">
-            <div className="w-[80%] mx-auto py-20">
-                <div className="bg-white p-10">
+            <div className="w-full lg:w-[80%]  mx-auto py-20">
+                <div className="blog p-10">
                     <img
                         src={blog.image}
                         alt={blog.title}
@@ -55,6 +63,16 @@ const BlogDetails = () => {
                         <span><BsArrowRightShort /></span>
                     </button>
 
+                </div>
+                {/* Related Blogs Section */}
+                <div className="mt-10 related-blogs p-10 ">
+                    <h2 className="text-2xl font-semibold mb-6">Related Blogs</h2>
+                    <RelatedBlogs relatedBlogs={relatedBlogs} />
+                </div>
+                {/* Comment Section */}
+                <div className="mt-10 comment-section p-10 border-t border-gray-300">
+                    <h2 className="text-2xl font-semibold mb-6">Leave a Comment</h2>
+                    <CommentSection blogId={blog.id} />
                 </div>
             </div>
         </section>

@@ -1,6 +1,7 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { IoIosArrowRoundUp } from "react-icons/io";
 
 import img1 from '../../assets/Footer/footer-01.jpg'
 import img2 from '../../assets/Footer/footer-02.jpg'
@@ -36,6 +37,29 @@ const Footer = () => {
         alert("Subscribed with email: " + email);
 
     }
+
+    // Scroll to top function
+
+    const [isVisible, setIsVisible] = useState(false);
+
+    // Scroll detect
+    useEffect(() => {
+        const toggleVisibility = () => {
+            if (window.scrollY > 100) {
+                setIsVisible(true);
+            } else {
+                setIsVisible(false);
+            }
+        };
+
+        window.addEventListener("scroll", toggleVisibility);
+        return () => window.removeEventListener("scroll", toggleVisibility);
+    }, []);
+
+    // Scroll to top function
+    const scrollToTop = () => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    };
 
     return (
         <section className="section border-t border-gray-100">
@@ -144,7 +168,7 @@ const Footer = () => {
                     <div>
                         <Link to="/" className="logo text-decoration-none">
                             <h1 className="text-2xl font-bold italic">
-                                Shofia <span className="font-normal text-yellow-600">Ellis</span>
+                                Shofia <span className="font-normal">Ellis</span>
                             </h1>
                         </Link>
                     </div>
@@ -158,14 +182,25 @@ const Footer = () => {
                     </div>
 
                     {/* Social Media */}
-                    <div>
+                    <div className='flex items-center justify-center gap-4'>
                         <div className="flex gap-4 mt-3 text-xl">
                             <a href="#" className="footer-social-icon"><FaFacebook /></a>
                             <a href="#" className="footer-social-icon"><FaTwitter /></a>
                             <a href="#" className="footer-social-icon"><FaInstagram /></a>
                             <a href="#" className="footer-social-icon"><FaLinkedin /></a>
                         </div>
+                        <div
+                            onClick={scrollToTop}
+                            className={`footer-scroll-icon fixed bottom-6 right-6 p-3 rounded-full cursor-pointer shadow-lg transition-all duration-500 
+      ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"} 
+      `}
+                        >
+                            <span className="text-3xl text-gray-700">
+                                <IoIosArrowRoundUp />
+                            </span>
+                        </div>
                     </div>
+
 
                 </div>
             </div>

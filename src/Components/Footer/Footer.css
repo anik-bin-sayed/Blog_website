@@ -21,6 +21,13 @@ body.light .footer-social-icon:hover {
   color: #7e6b50;
 }
 
+body.light .footer-scroll-icon {
+  background-color: #7e6b50;
+}
+body.light .footer-scroll-icon span {
+  color: #fff;
+}
+
 /* dark theme */
 body.dark .input {
   border: 1px solid #7e6b50;
@@ -48,6 +55,13 @@ body.dark .footer-social-icon {
 
 body.dark .footer-social-icon:hover {
   color: black;
+}
+
+body.dark .footer-scroll-icon {
+  background-color: #7e6b50;
+}
+body.dark .footer-scroll-icon span {
+  color: #fff;
 }
 
 /* blue theme */
@@ -79,6 +93,17 @@ body.blue .footer-social-icon:hover {
   color: black;
 }
 
+body.dark .footer-social-icon:hover {
+  color: black;
+}
+
+body.blue .footer-scroll-icon {
+  background-color: #0000ff;
+}
+body.blue .footer-scroll-icon span {
+  color: #fff;
+}
+
 /* crimson theme */
 body.crimson .input {
   border: 1px solid crimson;
@@ -107,4 +132,11 @@ body.crimson .footer-social-icon {
 
 body.crimson .footer-social-icon:hover {
   color: black;
+}
+
+body.crimson .footer-scroll-icon {
+  background-color: firebrick;
+}
+body.crimson .footer-scroll-icon span {
+  color: #fff;
 }
