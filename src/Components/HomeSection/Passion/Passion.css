@@ -1,0 +1,95 @@
+/* light */
+body.light .passion_section h1 span {
+  color: #a3936c;
+}
+
+body.light .passion-item {
+  background-color: #deddcf;
+}
+
+body.light .passion_btn {
+  border: 1px solid #a3936c;
+  color: #000;
+  transition: all 0.3 ease;
+}
+
+body.light .passion_btn:hover {
+  border: 1px solid #a3936c;
+  background-color: #a3936c;
+  color: #fff;
+}
+/* Dark */
+body.dark .passion_section {
+  background-color: #d2cdb7;
+}
+
+body.dark .passion_section h1 span {
+  color: #a3936c;
+}
+
+body.dark .passion-item {
+  background-color: #deddcf;
+}
+
+body.dark .passion_btn {
+  border: 1px solid #a3936c;
+  color: #000;
+  transition: all 0.3 ease;
+}
+
+body.dark .passion_btn:hover {
+  background-color: #a3936c;
+  color: #fff;
+  border: 1px solid #a3936c;
+}
+
+/* blue */
+
+body.blue .passion_section {
+  background-color: #e6f7ff;
+}
+
+body.blue .passion_section h1 span {
+  color: #a3936c;
+}
+
+body.blue .passion-item {
+  background-color: #bdd0d9;
+}
+
+body.blue .passion_btn {
+  border: 1px solid #0000ff;
+  color: #000;
+  transition: all 0.3 ease;
+}
+
+body.blue .passion_btn:hover {
+  border: 1px solid #0000ff;
+  background-color: #0000ff;
+  color: #fff;
+}
+
+/* crimson */
+body.crimson .passion_section {
+  background-color: #fff;
+}
+
+body.crimson .passion_section h1 span {
+  color: #fcd4bc;
+}
+
+body.crimson .passion-item {
+  background-color: #ffece7;
+}
+
+body.crimson .passion_btn {
+  border: 1px solid #dc143c;
+  color: #dc143c;
+  transition: all 0.3 ease;
+}
+
+body.crimson .passion_btn:hover {
+  border: 1px solid #dc143c;
+  background-color: #dc143c;
+  color: #fff;
+}

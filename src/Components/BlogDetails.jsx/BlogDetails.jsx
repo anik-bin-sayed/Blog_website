@@ -9,13 +9,22 @@ import { BsArrowRightShort } from "react-icons/bs";
 import './BlogDetails.css'
 import RelatedBlogs from "./RelatedBlogs";
 import CommentSection from "./CommentSection";
+import { latestBlog } from "../../data/LatestBlog";
 
 const BlogDetails = () => {
     const { id } = useParams();
-    const blogs = [...featureBlogs];
-    // const blogs = [...featureBlogs, ...allBlogs];
-    const blog = blogs.find(b => b.id.toString() === id);
-    const relatedBlogs = blogs.filter(b => b.id.toString() !== id).slice(0, 3);
+
+    const blogs = [...featureBlogs, ...latestBlog];
+
+    const uniqueBlogs = Array.from(new Map(blogs.map(b => [b.id, b])).values());
+
+    const blog = uniqueBlogs.find(b => b.id.toString() === id);
+
+    const relatedBlogs = uniqueBlogs
+        .filter(b => b.id.toString() !== id)
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 3);
+
 
     const navigate = useNavigate()
 

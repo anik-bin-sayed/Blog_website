@@ -1,0 +1,45 @@
+/* dark */
+body.dark .introduce_section {
+  background-color: #deddcf;
+}
+body.dark .introduce_content {
+  background-color: #d2cdb7;
+}
+body.dark .greetings {
+  color: #7e6b50;
+}
+
+body.dark .introduce_btn {
+  color: #7e6b50;
+}
+
+/* blue */
+body.blue .introduce_section {
+  background-color: #e6f7ff;
+}
+body.blue .introduce_content {
+  background-color: #fff;
+}
+body.blue .greetings {
+  color: #0000ff;
+}
+
+body.blue .introduce_btn {
+  color: #0000ff;
+}
+
+/* crimson */
+
+body.crimson .introduce_section {
+  background-color: #feece6;
+}
+body.crimson .introduce_content {
+  background-color: #fff;
+}
+body.crimson .greetings {
+  color: #dc143c;
+}
+
+body.crimson .introduce_btn {
+  color: #dc143c;
+}

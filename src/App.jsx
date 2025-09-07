@@ -4,12 +4,12 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from './Pages/Home';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
-import BlogDetails from './Components/BlogDetails.jsx/BlogDetails';
 
 // import Home from "./pages/Home";
 // import Products from "./pages/Products";
 // import Cart from "./pages/Cart";
 // import Login from "./pages/Login";
+import BlogDetails from './Components/BlogDetails.jsx/BlogDetails';
 
 function App() {
   return (

@@ -1,7 +1,10 @@
 import React from 'react'
-import HeroSection from '../Components/HeroSection/HeroSection'
-import { js } from '@eslint/js';
-import FeatureBlog from '../Components/FeatureBlogs/FeatureBlog';
+import HeroSection from '../Components/HomeSection/HeroSection/HeroSection'
+import FeatureBlog from '../Components/HomeSection/FeatureBlogs/FeatureBlog'
+import Passion from '../Components/HomeSection/Passion/Passion'
+import LatestBlog from '../Components/HomeSection/LatestBlog/LatestBlog'
+import Comments from '../Components/HomeSection/Comments/Commnet'
+import Introduce from '../Components/HomeSection/Introduce/Introduce'
 
 
 const Home = () => {
@@ -9,6 +12,10 @@ const Home = () => {
         <>
             <HeroSection />
             <FeatureBlog />
+            <Passion />
+            <LatestBlog />
+            <Comments />
+            <Introduce />
         </>
     )
 }

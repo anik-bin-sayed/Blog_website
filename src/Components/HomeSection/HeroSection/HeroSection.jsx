@@ -8,9 +8,9 @@ import './HeroSection.css'
 
 import { Link } from "react-router-dom";
 
-import image1 from '../../assets/Hero_Img/hero-img-01.jpg'
-import image2 from '../../assets/Hero_Img/hero-img-02.jpg'
-import image3 from '../../assets/Hero_Img/hero-img-03.jpg'
+import image1 from '../../../assets/Hero_Img/hero-img-01.jpg'
+import image2 from '../../../assets/Hero_Img/hero-img-02.jpg'
+import image3 from '../../../assets/Hero_Img/hero-img-03.jpg'
 
 export default function HeroSection() {
 

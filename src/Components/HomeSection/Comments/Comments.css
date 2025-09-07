@@ -1,0 +1,49 @@
+/* light */
+
+body.light .comments_section {
+  background-color: #fff;
+}
+
+body.light .quote_icon {
+  color: #7e6b50;
+}
+body.light .comment_title span {
+  color: #7e6b50;
+}
+
+/* dark */
+body.dark .comments_section {
+  background-color: #d2cdb7;
+}
+
+body.dark .quote_icon {
+  color: #7e6b50;
+}
+body.dark .comment_title span {
+  color: #7e6b50;
+}
+
+/* dark */
+body.blue .comments_section {
+  background-color: #fff;
+}
+
+body.blue .quote_icon {
+  color: #0000ff;
+}
+body.blue .comment_title span {
+  color: #8ed4f4;
+}
+
+/* crimson */
+
+body.crimson .comments_section {
+  background-color: #fff;
+}
+
+body.crimson .quote_icon {
+  color: #dc143c;
+}
+body.crimson .comment_title span {
+  color: #efa1b0;
+}

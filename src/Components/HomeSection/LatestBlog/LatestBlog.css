@@ -1,0 +1,19 @@
+body.dark .latest_blog_section {
+  background-color: #deddcf;
+}
+body.dark .latest_blog_section h1 span {
+  color: #a3936c;
+}
+/* blue */
+body.blue .latest_blog_section h1 span {
+  color: #0000ff;
+}
+
+/* Crimson */
+body.crimson .latest_blog_section {
+  background-color: #feede7;
+}
+
+body.crimson .latest_blog_section h1 span {
+  color: #dc143c;
+}

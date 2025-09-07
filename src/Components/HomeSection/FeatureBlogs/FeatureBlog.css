@@ -1,0 +1,15 @@
+body.light .feature_title span {
+  color: #a3936c;
+}
+
+body.dark .feature_section {
+  background-color: #deddcf;
+}
+
+body.blue .feature_section {
+  background-color: #e6f7ff;
+}
+
+body.crimson .feature_section {
+  background-color: #feece6;
+}
