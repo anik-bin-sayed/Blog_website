@@ -175,19 +175,19 @@ const Footer = () => {
 
                     {/* Links */}
                     <div className="flex gap-3">
-                        <a href="/" className="footer-link">Home</a>
-                        <a href="/blog" className="footer-link">Blog</a>
-                        <a href="/about" className="footer-link">About</a>
-                        <a href="/contact" className="footer-link">Contact</a>
+                        <Link to="/" className="footer-link">Home</Link>
+                        <Link to="/blog" className="footer-link">Blog</Link>
+                        <Link to="/about" className="footer-link">About</Link>
+                        <Link to="/contact" className="footer-link">Contact</Link>
                     </div>
 
                     {/* Social Media */}
                     <div className='flex items-center justify-center gap-4'>
                         <div className="flex gap-4 mt-3 text-xl">
-                            <a href="#" className="footer-social-icon"><FaFacebook /></a>
-                            <a href="#" className="footer-social-icon"><FaTwitter /></a>
-                            <a href="#" className="footer-social-icon"><FaInstagram /></a>
-                            <a href="#" className="footer-social-icon"><FaLinkedin /></a>
+                            <Link to="#" className="footer-social-icon"><FaFacebook /></Link>
+                            <Link to="#" className="footer-social-icon"><FaTwitter /></Link>
+                            <Link to="#" className="footer-social-icon"><FaInstagram /></Link>
+                            <Link to="#" className="footer-social-icon"><FaLinkedin /></Link>
                         </div>
                         <div
                             onClick={scrollToTop}
