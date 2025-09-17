@@ -11,6 +11,7 @@ import AboutPage from './Pages/About';
 import ContactPage from './Pages/Contact';
 import ScrollToTop from './Components/ScrollTop';
 import BlogPage from './Pages/Blog';
+import PageNotFound from './Components/Pagenotfound/PageNotFound';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/blog" element={<BlogPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
       {   /* <Footer /> */}
       <Footer />
