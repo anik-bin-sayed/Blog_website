@@ -47,8 +47,8 @@ const LatestBlog = () => {
                     ))}
                 </div>
 
-                <Link to="/blogs" className='passion_btn uppercase font-semibold inline-block mt-10 px-6 py-2 rounded-full transition duration-300'>
-                    View All Blog
+                <Link to="/blog" className='btn uppercase inline-block mt-0 px-6 py-3  tracking-[0.3cap]'>
+                    All Blogs
                 </Link>
             </div>
         </div>

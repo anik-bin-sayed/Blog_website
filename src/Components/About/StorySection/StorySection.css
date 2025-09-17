@@ -1,0 +1,23 @@
+/* light */
+
+body.light .focused-text {
+  color: #7e6b50;
+}
+
+/* light */
+
+body.dark .focused-text {
+  color: #7e6b50;
+}
+
+/* blue */
+
+body.blue .focused-text {
+  color: #0000ff;
+}
+
+/* crimson */
+
+body.crimson .focused-text {
+  color: #dc143c;
+}

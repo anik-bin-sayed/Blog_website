@@ -1,0 +1,23 @@
+/* light */
+
+body.light .Journey {
+  background-color: #fff;
+}
+
+/* dark */
+
+body.dark .Journey {
+  background-color: #dfdccf;
+}
+
+/* blue */
+
+body.blue .Journey {
+  background-color: #e6f6fe;
+}
+
+/* crimson */
+
+body.crimson .Journey {
+  background-color: #ffede6;
+}

@@ -62,7 +62,7 @@ const Footer = () => {
     };
 
     return (
-        <section className="section border-t border-gray-100">
+        <section className="section border-gray-100">
             <div className="w-[80%] mx-auto pb-20">
                 <p className="text-center text-xl md:text-2xl font-semibold py-20 ">
                     Follow me on Instagram
@@ -149,7 +149,7 @@ const Footer = () => {
 
                             {error && <span className="text-red-500 text-sm mb-2">{error}</span>}
 
-                            <button className="btn w-full px-3 py-2 rounded hover:bg-gray-100 cursor-pointer">
+                            <button className="btn w-full px-3 py-3 rounded hover:bg-gray-100 cursor-pointer uppercase tracking-[0.3cap]">
                                 Subscribe
                             </button>
                         </form>

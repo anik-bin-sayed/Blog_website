@@ -1,4 +1,4 @@
-/* ===================== Navbar Light Mode ===================== */
+/* light */
 body.light .header {
   background-color: #fff;
   color: #111111;
@@ -15,18 +15,7 @@ body.light .nav-link {
   color: black;
   transition: 2s;
   position: relative;
-  text-decoration: none; /* optional */
-}
-
-body.light .nav-link.active::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -15px;
-  height: 2px;
-  width: 100%;
-  background-color: #7e6b50;
-  transition: all 0.3s;
+  text-decoration: none;
 }
 
 body.light .nav-link:hover {
@@ -37,7 +26,7 @@ body.light .nav-link::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -15px;
+  bottom: -5px;
   height: 2px;
   width: 0;
   background-color: #7e6b50;
@@ -49,7 +38,16 @@ body.light .nav-link:hover::after {
 }
 
 body.light .nav-link:hover {
-  color: #7e6b50; /* Tailwind blue-600 */
+  color: #7e6b50;
+}
+
+body.light .nav-link.active {
+  color: #7e6b50;
+}
+
+body.light .nav-link.active::after {
+  width: 100%;
+  background-color: #7e6b50;
 }
 
 body.light .theme {
@@ -59,7 +57,7 @@ body.light .theme {
 }
 
 body.light .theme:hover {
-  background-color: #574a37;
+  background-color: #a18966;
   color: #fff;
 }
 
@@ -86,7 +84,7 @@ body.dark .nav-link {
   color: black;
   transition: 2s;
   position: relative;
-  text-decoration: none; /* optional */
+  text-decoration: none;
 }
 
 body.dark .nav-link:hover {
@@ -97,7 +95,7 @@ body.dark .nav-link::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -15px;
+  bottom: -5px;
   height: 2px;
   width: 0;
   background-color: #7e6b50;
@@ -109,7 +107,16 @@ body.dark .nav-link:hover::after {
 }
 
 body.dark .nav-link:hover {
-  color: #7e6b50; /* Tailwind blue-600 */
+  color: #7e6b50;
+}
+
+body.dark .nav-link.active {
+  color: #7e6b50;
+}
+
+body.dark .nav-link.active::after {
+  width: 100%;
+  background-color: #7e6b50;
 }
 
 body.dark .theme {
@@ -153,14 +160,14 @@ body.blue .nav-link {
   color: rgb(96, 96, 240);
   transition: 2s;
   position: relative;
-  text-decoration: none; /* optional */
+  text-decoration: none;
 }
 
 body.blue .nav-link::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -15px;
+  bottom: -5px;
   height: 2px;
   width: 0;
   background-color: blue;
@@ -172,12 +179,20 @@ body.blue .nav-link:hover::after {
 }
 
 body.blue .nav-link:hover {
-  color: blue; /* Tailwind blue-600 */
+  color: blue;
+}
+
+body.blue .nav-link.active {
+  color: blue;
+}
+
+body.blue .nav-link.active::after {
+  width: 100%;
+  background-color: blue;
 }
 
 body.blue .theme {
   border: 1px solid blue;
-  /* background-color: #7e6b50; */
   color: black;
   transition: all 0.3s;
 }
@@ -217,14 +232,14 @@ body.crimson .nav-link {
   color: crimson;
   transition: 2s;
   position: relative;
-  text-decoration: none; /* optional */
+  text-decoration: none;
 }
 
 body.crimson .nav-link::after {
   content: "";
   position: absolute;
   left: 0;
-  bottom: -15px;
+  bottom: -5px;
   height: 2px;
   width: 0;
   background-color: crimson;
@@ -236,12 +251,20 @@ body.crimson .nav-link:hover::after {
 }
 
 body.crimson .nav-link:hover {
-  color: crimson; /* Tailwind blue-600 */
+  color: crimson;
+}
+
+body.crimson .nav-link.active {
+  color: crimson;
+}
+
+body.crimson .nav-link.active::after {
+  width: 100%;
+  background-color: crimson;
 }
 
 body.crimson .theme {
   border: 1px solid crimson;
-  /* background-color: #7e6b50; */
   color: black;
   transition: all 0.3s;
 }

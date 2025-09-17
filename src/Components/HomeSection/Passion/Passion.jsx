@@ -10,7 +10,7 @@ const Passion = () => {
         <div className="passion_section">
             <div className='w-[80%] mx-auto py-20 text-center'>
                 <h1 className='text-4xl font-semibold'>
-                    Explore My <span className='italic'>Passions</span>
+                    Explore My <span className='focused-text italic'>Passions</span>
                 </h1>
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-20'>
@@ -30,8 +30,8 @@ const Passion = () => {
                     }
                 </div>
                 <div>
-                    <Link to="/blogs" className='passion_btn uppercase font-semibold inline-block mt-10 px-6 py-2 rounded-full transition duration-300'>
-                        View All Blog
+                    <Link to="/blog" className='btn uppercase inline-block mt-10 px-6 py-3  tracking-[0.3cap]'>
+                        View All Blogs
                     </Link>
                 </div>
             </div>

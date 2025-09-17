@@ -1,0 +1,35 @@
+/* light */
+body.light .follow-container {
+  background-color: #fff6f7;
+}
+
+body.light .follow-border {
+  border-color: gainsboro;
+}
+
+/* dark */
+body.dark .follow-container {
+  background-color: #d3ccb7;
+}
+
+body.dark .follow-border {
+  border-color: #bbac7f;
+}
+
+/* blue */
+body.blue .follow-container {
+  background-color: #fff;
+}
+
+body.blue .follow-border {
+  border-color: #cce5f4;
+}
+
+/* crimson */
+body.crimson .follow-container {
+  background-color: #fff;
+}
+
+body.crimson .follow-border {
+  border-color: #d797a4;
+}

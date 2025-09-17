@@ -1,0 +1,63 @@
+/* light */
+body.light .blog-mission {
+  background-color: #f4efef;
+}
+
+body.light .blog_btn {
+  background-color: #7e6b50;
+  color: #f4efef;
+  letter-spacing: 0.5cap;
+  transition: all 0.2s ease-in-out;
+}
+
+body.light .blog_btn:hover {
+  background-color: #7e6440;
+}
+
+/* dark */
+body.dark .blog-mission {
+  background-color: #d2ccb6;
+}
+
+body.dark .blog_btn {
+  background-color: #7e6b50;
+  color: #f4efef;
+  letter-spacing: 0.5cap;
+  transition: all 0.2s ease-in-out;
+}
+
+body.dark .blog_btn:hover {
+  background-color: #7e6440;
+}
+
+/* blue */
+body.blue .blog-mission {
+  background-color: #fff;
+}
+
+body.blue .blog_btn {
+  background-color: #0000ff;
+  color: #f4efef;
+  letter-spacing: 0.5cap;
+  transition: all 0.2s ease-in-out;
+}
+
+body.blue .blog_btn:hover {
+  background-color: #1212d2;
+}
+
+/* crimson */
+body.crimson .blog-mission {
+  background-color: #fff;
+}
+
+body.crimson .blog_btn {
+  background-color: #dc143c;
+  color: #f4efef;
+  letter-spacing: 0.5cap;
+  transition: all 0.2s ease-in-out;
+}
+
+body.crimson .blog_btn:hover {
+  background-color: #c42141;
+}

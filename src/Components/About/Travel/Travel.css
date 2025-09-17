@@ -1,0 +1,19 @@
+/* light */
+body.light .travel-container {
+  background-color: #f5efee;
+}
+
+/* dark */
+body.dark .travel-container {
+  background-color: #d2ccb6;
+}
+
+/* dark */
+body.blue .travel-container {
+  background-color: #fff;
+}
+
+/* crimson */
+body.crimson .travel-container {
+  background-color: #fff;
+}

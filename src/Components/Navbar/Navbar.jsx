@@ -1,9 +1,17 @@
 import React, { useEffect, useRef, useState } from "react";
+
+// router
 import { Link, NavLink } from "react-router-dom";
+
+// theme context
 import { useTheme } from "../ThemeProvider.jsx";
+
+// icons
 import { FaInstagram, FaLinkedinIn } from "react-icons/fa";
 import { CiFacebook } from "react-icons/ci";
 import { IoArrowDownOutline, IoArrowUpOutline } from "react-icons/io5";
+
+// styles
 import "./Navbar.css";
 
 
@@ -15,7 +23,6 @@ export default function Navbar() {
 
     const toggleMenu = () => setIsOpen(!isOpen);
 
-    // Close dropdown if clicked outside
     useEffect(() => {
         const handleClickOutside = (event) => {
             if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -31,8 +38,8 @@ export default function Navbar() {
     }, [dropdownOpen]);
 
     return (
-        <header className="header sticky top-0 z-50">
-            <div className="w-[90%] md:w-[80%] mx-auto flex items-center justify-between py-4">
+        <header className="header">
+            <div className="w-[80%]  mx-auto flex items-center justify-between py-4">
                 {/* Logo */}
                 <Link to="/" className="logo text-decoration-none">
                     <h1 className="text-2xl font-bold italic">
@@ -41,11 +48,19 @@ export default function Navbar() {
                 </Link>
 
                 {/* Desktop Menu */}
-                <nav className="navbar hidden md:flex space-x-6 text-gray-700 font-medium items-center">
-                    <Link to="/" className="nav-link">Home</Link>
-                    <Link to="/blog" className="nav-link">Blog</Link>
-                    <Link to="/about" className="nav-link">About</Link>
-                    <Link to="/contact" className="nav-link">Contact</Link>
+                <nav className="navbar hidden lg:flex space-x-6 items-center text-sm">
+                    <NavLink to="/" className="nav-link">
+                        Home
+                    </NavLink>
+                    <NavLink to="/blog" className="nav-link">
+                        Blog
+                    </NavLink>
+                    <NavLink to="/about" className="nav-link">
+                        About
+                    </NavLink>
+                    <NavLink to="/contact" className="nav-link">
+                        Contact
+                    </NavLink>
 
                     {/* Theme Dropdown */}
                     <div className="relative" ref={menuRef}>
@@ -95,7 +110,7 @@ export default function Navbar() {
                 </nav>
 
                 {/* Desktop Socials + Subscribe */}
-                <div className="hidden md:flex items-center space-x-4">
+                <div className="hidden lg:flex items-center space-x-4">
                     <div className="flex items-center space-x-3 text-xl text-gray-600">
                         <Link to="https://www.instagram.com/" target="_blank" className="hover:text-pink-500 transition">
                             <FaInstagram />
@@ -107,13 +122,13 @@ export default function Navbar() {
                             <FaLinkedinIn />
                         </Link>
                     </div>
-                    <button className="theme px-3 py-2 rounded hover:bg-gray-100 cursor-pointer">Subscribe</button>
+                    <button className="theme px-3 py-2 rounded hover:bg-gray-100 cursor-pointer text-sm uppercase tracking-[0.3cap] ">Subscribe</button>
                 </div>
 
                 {/* Mobile Hamburger */}
                 <button
                     onClick={toggleMenu}
-                    className="md:hidden text-gray-700 text-2xl focus:outline-none"
+                    className="lg:hidden text-gray-700 text-2xl focus:outline-none"
                 >
                     {isOpen ? "✕" : "☰"}
                 </button>
@@ -121,13 +136,21 @@ export default function Navbar() {
 
             {/* Mobile Dropdown */}
             <div
-                className={`responsive md:hidden border-gray-200 overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}
+                className={`responsive lg:hidden border-gray-200 overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}
             >
                 <nav className="flex flex-col items-start px-6 py-4 space-y-3 text-gray-700 font-medium">
-                    <Link to="/" className="nav-link" onClick={() => setIsOpen(false)}>Home</Link>
-                    <Link to="/blog" className="nav-link" onClick={() => setIsOpen(false)}>Blog</Link>
-                    <Link to="/about" className="nav-link" onClick={() => setIsOpen(false)}>About</Link>
-                    <Link to="/contact" className="nav-link" onClick={() => setIsOpen(false)}>Contact</Link>
+                    <NavLink to="/" className="nav-link" onClick={() => setIsOpen(false)}>
+                        Home
+                    </NavLink>
+                    <NavLink to="/blog" className="nav-link" onClick={() => setIsOpen(false)}>
+                        Blog
+                    </NavLink>
+                    <NavLink to="/about" className="nav-link" onClick={() => setIsOpen(false)}>
+                        About
+                    </NavLink>
+                    <NavLink to="/contact" className="nav-link" onClick={() => setIsOpen(false)}>
+                        Contact
+                    </NavLink>
 
                     {/* Mobile Theme */}
                     <div className="w-full">
@@ -174,7 +197,7 @@ export default function Navbar() {
                             <FaLinkedinIn />
                         </Link>
                     </div>
-                    <button className=" theme px-3 py-2 rounded cursor-pointer">
+                    <button className=" theme px-3 py-2 rounded cursor-pointer text-sm uppercase tracking-[0.5cap]">
                         Subscribe
                     </button>
                 </div>

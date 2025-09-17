@@ -4,7 +4,7 @@ body.light .passion_section h1 span {
 }
 
 body.light .passion-item {
-  background-color: #deddcf;
+  border: 1px solid #a3936c;
 }
 
 body.light .passion_btn {
@@ -50,7 +50,7 @@ body.blue .passion_section {
 }
 
 body.blue .passion_section h1 span {
-  color: #a3936c;
+  color: #0000ff;
 }
 
 body.blue .passion-item {
@@ -75,7 +75,7 @@ body.crimson .passion_section {
 }
 
 body.crimson .passion_section h1 span {
-  color: #fcd4bc;
+  color: #dc143c;
 }
 
 body.crimson .passion-item {
