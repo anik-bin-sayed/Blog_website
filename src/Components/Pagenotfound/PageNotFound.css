@@ -5,13 +5,11 @@ body.light .go-btn:first-child {
 }
 
 body.light .title {
-  color: #7e6b50;
+  color: #1c1c19;
 }
 
 /* dark */
 body.dark .page-not-found {
-  /* background-color: #93825e; */
-  /* background-color: #deddcf */
   background: linear-gradient(to bottom, #deddcf, #c6c4a2);
 }
 
@@ -20,7 +18,7 @@ body.dark .go-btn {
 }
 
 body.dark .title {
-  color: #b3b29f;
+  color: #1c1c19;
 }
 
 /* blue */
@@ -51,4 +49,3 @@ body.crimson .go-btn:hover,
 body.dark .go-btn:hover {
   transform: translateY(-2px);
 }
-/* #4f38f7 */

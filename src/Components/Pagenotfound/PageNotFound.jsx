@@ -23,7 +23,7 @@ const PageNotFound = () => {
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2 }}
-                className="mt-4 text-lg sm:text-xl text-slate-700 dark:text-slate-300"
+                className="mt-4 text-lg sm:text-xl text-gray-900"
             >
                 Oops! The page you’re looking for doesn’t exist.
             </motion.p>
