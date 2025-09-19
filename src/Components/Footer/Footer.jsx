@@ -167,8 +167,8 @@ const Footer = () => {
                     {/* Brand Section */}
                     <div>
                         <Link to="/" className="logo text-decoration-none">
-                            <h1 className="text-2xl font-bold italic">
-                                Shofia <span className="font-normal">Ellis</span>
+                            <h1 className="text-2xl font-semibold italic thin">
+                                Sophia <span className="font-normal">Ellis</span>
                             </h1>
                         </Link>
                     </div>

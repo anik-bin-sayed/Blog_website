@@ -42,8 +42,8 @@ export default function Navbar() {
             <div className="w-[80%]  mx-auto flex items-center justify-between py-4">
                 {/* Logo */}
                 <Link to="/" className="logo text-decoration-none">
-                    <h1 className="text-2xl font-bold italic">
-                        Shofia <span className="font-normal">Ellis</span>
+                    <h1 className="text-2xl font-semibold italic thin">
+                        Sophia <span className="font-normal">Ellis</span>
                     </h1>
                 </Link>
 

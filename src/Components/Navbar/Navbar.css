@@ -6,6 +6,7 @@ body.light .header {
 
 body.light .logo h1 {
   color: black;
+  font-family: "Alegreya", Sans-serif;
 }
 body.light .logo h1 span {
   color: #7e6b50;
@@ -80,6 +81,14 @@ body.dark .header {
   background-color: #deddcf;
 }
 
+body.dark .logo h1 {
+  color: black;
+  font-family: "Alegreya", Sans-serif;
+}
+body.dark .logo h1 span {
+  color: #7e6b50;
+}
+
 body.dark .nav-link {
   color: black;
   transition: 2s;
@@ -151,6 +160,7 @@ body.blue .header {
 
 body.blue .logo h1 {
   color: black;
+  font-family: "Alegreya", Sans-serif;
 }
 body.blue .logo h1 span {
   color: blue;
@@ -223,6 +233,7 @@ body.crimson .header {
 
 body.crimson .logo h1 {
   color: black;
+  font-family: "Alegreya", Sans-serif;
 }
 body.crimson .logo h1 span {
   color: crimson;
