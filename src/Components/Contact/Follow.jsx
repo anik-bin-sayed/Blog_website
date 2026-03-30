@@ -1,41 +1,72 @@
-import React from 'react'
-
-// styles
-import './Follow.css'
-
-// icons
+import React from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { IoIosArrowRoundUp } from "react-icons/io";
-
 
 const Follow = () => {
-    return (
-        <div className='follow-container'>
-            <div className='w-[80%] mx-auto flex flex-col md:flex-row lg:flex-row gap-3 items-center justify-evenly py-20'>
-                <div className='focused-text flex flex-col items-center justify-center gap-4'>
-                    <h2 className='text-center uppercase font-semibold'>My Email</h2>
-                    <p className=''>info@sophiaellis.com</p>
-                </div>
-                <div
-                    className="follow-border border w-full md:w-0 lg:w-0 h-0 md:h-[200px] lg:h-[200px]"
-                />
+  return (
+    <section className="bg-gradient-to-b from-white to-gray-50 py-16 md:py-20">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+          {/* Email Section */}
+          <div className="text-center space-y-2">
+            <h2 className="text-sm uppercase tracking-wider font-semibold text-teal-600">
+              My Email
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-800 font-medium">
+              info@sophiaellis.com
+            </p>
+          </div>
 
-                <div>
-                    <h2 className='text-center uppercase font-semibold'>Follow Me</h2>
-                    {/* Social Media */}
-                    <div className='flex items-center justify-center gap-4'>
-                        <div className="flex gap-4 mt-3 text-xl">
-                            <a href="#" className="footer-social-icon"><FaFacebook /></a>
-                            <a href="#" className="footer-social-icon"><FaTwitter /></a>
-                            <a href="#" className="footer-social-icon"><FaInstagram /></a>
-                            <a href="#" className="footer-social-icon"><FaLinkedin /></a>
-                        </div>
+          <div className="w-12 h-px md:w-px md:h-12 bg-gray-300"></div>
 
-                    </div>
-                </div>
+          {/* Social Section */}
+          <div className="text-center space-y-4">
+            <h2 className="text-sm uppercase tracking-wider font-semibold text-teal-600">
+              Follow Me
+            </h2>
+            <div className="flex justify-center gap-5">
+              {[
+                {
+                  Icon: FaFacebook,
+                  href: "#",
+                  label: "Facebook",
+                  color: "hover:text-blue-600",
+                },
+                {
+                  Icon: FaTwitter,
+                  href: "#",
+                  label: "Twitter",
+                  color: "hover:text-sky-500",
+                },
+                {
+                  Icon: FaInstagram,
+                  href: "#",
+                  label: "Instagram",
+                  color: "hover:text-pink-500",
+                },
+                {
+                  Icon: FaLinkedin,
+                  href: "#",
+                  label: "LinkedIn",
+                  color: "hover:text-blue-700",
+                },
+              ].map(({ Icon, href, label, color }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`text-gray-600 text-2xl transition-all duration-200 ${color} hover:scale-110`}
+                  aria-label={label}
+                >
+                  <Icon />
+                </a>
+              ))}
             </div>
+          </div>
         </div>
-    )
-}
+      </div>
+    </section>
+  );
+};
 
-export default Follow
+export default Follow;
