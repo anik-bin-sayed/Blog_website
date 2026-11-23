@@ -1,6 +1,3 @@
-import image1 from "../assets/about/about-hero-01.jpg";
-import image2 from "../assets/about/about-hero-02.jpg";
-
 export const aboutStory = [
   {
     text: "Fueled by a lifelong fascination with storytelling, my marketing career began in a dynamic agency where I mastered the art of digital strategy and branding. Over the past decade, I’ve crafted narratives that connect and inspire, working with diverse clients across industries.",

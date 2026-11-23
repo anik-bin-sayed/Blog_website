@@ -1,183 +1,296 @@
-import React, { useEffect, useState } from "react";
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { IoIosArrowRoundUp } from "react-icons/io";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import {
+  Instagram,
+  Facebook,
+  Linkedin,
+  ArrowRight,
+  ArrowUp,
+} from "lucide-react";
 import img1 from "../../assets/Footer/footer-01.jpg";
 import img2 from "../../assets/Footer/footer-02.jpg";
 import img3 from "../../assets/Footer/footer-03.jpg";
 import img4 from "../../assets/Footer/footer-04.jpg";
 
+const gallery = [img1, img2, img3, img4];
+
+const explore = [
+  { to: "/", label: "Home" },
+  { to: "/blog", label: "Journal" },
+  { to: "/about", label: "About" },
+  { to: "/contact", label: "Contact" },
+];
+
+const topics = ["Travel", "Technology", "Wellness", "Growth"];
+
+const socials = [
+  { href: "https://www.instagram.com/", label: "Instagram", Icon: Instagram },
+  { href: "https://www.facebook.com/", label: "Facebook", Icon: Facebook },
+  { href: "https://www.linkedin.com/", label: "LinkedIn", Icon: Linkedin },
+];
+
 const Footer = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
+  const [showTop, setShowTop] = useState(false);
 
-  const validateEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(email);
-  };
+  useEffect(() => {
+    const onScroll = () => setShowTop(window.scrollY > 600);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
-  const handleSubscribe = (e) => {
-    e.preventDefault();
-    if (email.trim() === "") {
-      setError("Email is required.");
+  const handleSubscribe = (event) => {
+    event.preventDefault();
+    if (!email.trim()) {
+      setError("Please enter your email address.");
       return;
     }
-    if (!validateEmail(email)) {
-      setError("Please enter a valid email address.");
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError("That email does not look quite right.");
       return;
     }
     setError("");
-    alert("Subscribed with email: " + email);
+    setSubscribed(true);
     setEmail("");
   };
 
-  const [isVisible, setIsVisible] = useState(false);
-  useEffect(() => {
-    const toggleVisibility = () => setIsVisible(window.scrollY > 100);
-    window.addEventListener("scroll", toggleVisibility);
-    return () => window.removeEventListener("scroll", toggleVisibility);
-  }, []);
-
-  const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
-
   return (
-    <footer className="bg-white border-t border-gray-100">
-      {/* Instagram Gallery */}
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
-        <p className="text-center text-xl md:text-2xl font-semibold text-gray-800 mb-8">
-          Follow me on Instagram
-        </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-          {[img1, img2, img3, img4].map((img, idx) => (
-            <div
-              key={idx}
-              className="relative group overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
+    <footer className="mt-20 md:mt-28">
+      {/* Newsletter */}
+      <section id="newsletter" className="container-page">
+        <div className="relative overflow-hidden rounded-[2rem] bg-ink px-6 py-14 text-paper md:px-14 md:py-20">
+          <div
+            className="pointer-events-none absolute -right-24 -top-24 h-72 w-72 rounded-full bg-clay/30 blur-3xl"
+            aria-hidden="true"
+          />
+          <div
+            className="pointer-events-none absolute -bottom-32 left-1/3 h-72 w-72 rounded-full bg-blush/10 blur-3xl"
+            aria-hidden="true"
+          />
+
+          <div className="relative grid items-center gap-10 md:grid-cols-2">
+            <div>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-blush">
+                The Sunday letter
+              </p>
+              <h2 className="mt-4 text-4xl leading-[1.05] text-paper md:text-5xl">
+                A slower inbox,
+                <br />
+                <em className="italic text-blush">once a week.</em>
+              </h2>
+              <p className="mt-5 max-w-md text-sm leading-relaxed text-paper/60">
+                Join 4,000+ readers who get one thoughtful note every Sunday —
+                new stories, small rituals, and the things I am loving lately.
+                No noise, ever.
+              </p>
+            </div>
+
+            <div className="md:justify-self-end md:w-full md:max-w-md">
+              {subscribed ? (
+                <div className="rounded-2xl border border-paper/15 bg-paper/5 p-6">
+                  <p className="font-display text-2xl text-paper">
+                    You are on the list.
+                  </p>
+                  <p className="mt-2 text-sm leading-relaxed text-paper/60">
+                    Look out for the first letter this Sunday. Until then, pour
+                    something warm and read a story or two.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubscribe} noValidate>
+                  <label
+                    htmlFor="newsletter-email"
+                    className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.22em] text-paper/50"
+                  >
+                    Email address
+                  </label>
+                  <div className="flex flex-col gap-3 sm:flex-row">
+                    <input
+                      id="newsletter-email"
+                      type="email"
+                      value={email}
+                      onChange={(event) => setEmail(event.target.value)}
+                      placeholder="you@example.com"
+                      className="w-full rounded-full border border-paper/20 bg-paper/5 px-5 py-3.5 text-sm text-paper outline-none transition placeholder:text-paper/35 focus:border-blush focus:ring-2 focus:ring-blush/20"
+                    />
+                    <button type="submit" className="btn-light shrink-0">
+                      Subscribe
+                      <ArrowRight size={14} aria-hidden="true" />
+                    </button>
+                  </div>
+                  {error && (
+                    <p className="mt-3 text-xs text-red-300" role="alert">
+                      {error}
+                    </p>
+                  )}
+                  <p className="mt-3 text-[11px] text-paper/35">
+                    Unsubscribe any time. Your inbox stays yours.
+                  </p>
+                </form>
+              )}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Instagram strip */}
+      <section className="container-page py-14 md:py-20">
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <p className="eyebrow">On Instagram</p>
+            <h2 className="mt-3 text-3xl text-ink">Life between the lines</h2>
+          </div>
+          <a
+            href="https://www.instagram.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-link"
+          >
+            @sophiaellis
+            <Instagram size={14} aria-hidden="true" />
+          </a>
+        </div>
+
+        <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+          {gallery.map((image, index) => (
+            <a
+              key={index}
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block aspect-square overflow-hidden rounded-2xl bg-cream"
+              aria-label={`Instagram post ${index + 1}`}
             >
               <img
-                src={img}
-                alt={`Instagram post ${idx + 1}`}
-                className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-105"
+                src={image}
+                alt=""
+                loading="lazy"
+                className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <FaInstagram className="text-white text-3xl transform transition-transform duration-300 group-hover:scale-110" />
-              </div>
-            </div>
+              <span className="absolute inset-0 flex items-center justify-center bg-ink/45 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                <Instagram size={22} className="text-paper" aria-hidden="true" />
+              </span>
+            </a>
           ))}
         </div>
+      </section>
 
-        {/* CTA Section */}
-        <div className="mt-16 flex flex-col md:flex-row items-center justify-between gap-8 bg-gradient-to-r from-teal-50 to-white p-6 md:p-8 rounded-2xl shadow-sm">
-          <div className="text-center md:text-left">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 leading-tight">
-              Let’s learn, explore, and thrive together!
-            </h2>
-            <p className="text-gray-600 mt-4 max-w-md">
-              Connect with 4000+ like-minded individuals and be part of a
-              community that values growth, curiosity, and empowerment.
+      {/* Footer body */}
+      <div className="border-t border-ink/10">
+        <div className="container-page grid gap-10 py-14 md:grid-cols-12 md:gap-8">
+          <div className="md:col-span-5">
+            <Link to="/" className="flex items-baseline gap-2">
+              <span className="font-display text-2xl italic text-ink">
+                Sophia
+              </span>
+              <span className="font-display text-2xl text-ink">Ellis</span>
+            </Link>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-ink-soft">
+              A lifestyle journal about travel, technology, wellness, and the
+              quiet habits that make a big life. Written from wherever I happen
+              to be.
+            </p>
+            <div className="mt-6 flex gap-3">
+              {socials.map(({ href, label, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={label}
+                  className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-ink-soft transition-colors hover:border-clay hover:bg-clay hover:text-paper"
+                >
+                  <Icon size={16} aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <div className="md:col-span-2">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-ink-soft/60">
+              Explore
+            </p>
+            <ul className="mt-4 space-y-3 text-sm">
+              {explore.map(({ to, label }) => (
+                <li key={to}>
+                  <Link
+                    to={to}
+                    className="text-ink-soft transition-colors hover:text-clay"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-ink-soft/60">
+              Topics
+            </p>
+            <ul className="mt-4 space-y-3 text-sm">
+              {topics.map((topic) => (
+                <li key={topic}>
+                  <Link
+                    to="/blog"
+                    className="text-ink-soft transition-colors hover:text-clay"
+                  >
+                    {topic}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="md:col-span-3">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-ink-soft/60">
+              Get in touch
+            </p>
+            <a
+              href="mailto:info@sophiaellis.com"
+              className="mt-4 block font-display text-xl text-ink transition-colors hover:text-clay"
+            >
+              info@sophiaellis.com
+            </a>
+            <p className="mt-3 text-sm leading-relaxed text-ink-soft">
+              For collaborations, press, or just a kind note. I usually reply
+              within 48 hours.
             </p>
           </div>
+        </div>
 
-          <div className="md:w-1/2 max-w-md w-full">
-            <form onSubmit={handleSubscribe} className="flex flex-col gap-3">
-              <input
-                type="text"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className="px-4 py-3 rounded-lg border border-gray-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-200 outline-none transition-all"
-              />
-              {error && <span className="text-red-500 text-sm">{error}</span>}
-              <button
-                type="submit"
-                className="px-6 py-3 bg-teal-600 text-white font-medium rounded-lg shadow-md hover:bg-teal-700 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
-              >
-                Subscribe
-              </button>
-            </form>
+        <div className="border-t border-ink/10">
+          <div className="container-page flex flex-col items-center justify-between gap-3 py-6 text-xs text-ink-soft/70 sm:flex-row">
+            <p>
+              © {new Date().getFullYear()} Sophia Ellis. All rights reserved.
+            </p>
+            <button
+              type="button"
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              className="inline-flex items-center gap-2 transition-colors hover:text-clay"
+            >
+              Back to top
+              <ArrowUp size={13} aria-hidden="true" />
+            </button>
           </div>
         </div>
       </div>
 
-      {/* Bottom Footer */}
-      <div className="border-t border-gray-200 mt-8">
-        <div className="container mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-          <Link
-            to="/"
-            className="text-2xl font-semibold italic text-gray-800 hover:text-teal-600 transition-colors"
-          >
-            Sophia <span className="font-normal">Ellis</span>
-          </Link>
-
-          <div className="flex gap-6">
-            <Link
-              to="/"
-              className="text-gray-600 hover:text-teal-600 transition-colors"
-            >
-              Home
-            </Link>
-            <Link
-              to="/blog"
-              className="text-gray-600 hover:text-teal-600 transition-colors"
-            >
-              Blog
-            </Link>
-            <Link
-              to="/about"
-              className="text-gray-600 hover:text-teal-600 transition-colors"
-            >
-              About
-            </Link>
-            <Link
-              to="/contact"
-              className="text-gray-600 hover:text-teal-600 transition-colors"
-            >
-              Contact
-            </Link>
-          </div>
-
-          <div className="flex gap-4 text-xl">
-            <a
-              href="#"
-              className="text-gray-500 hover:text-teal-600 transition-colors"
-            >
-              <FaFacebook />
-            </a>
-            <a
-              href="#"
-              className="text-gray-500 hover:text-teal-600 transition-colors"
-            >
-              <FaTwitter />
-            </a>
-            <a
-              href="#"
-              className="text-gray-500 hover:text-teal-600 transition-colors"
-            >
-              <FaInstagram />
-            </a>
-            <a
-              href="#"
-              className="text-gray-500 hover:text-teal-600 transition-colors"
-            >
-              <FaLinkedin />
-            </a>
-          </div>
-        </div>
-        <div className="text-center text-gray-400 text-sm pb-6">
-          © {new Date().getFullYear()} Sophia Ellis. All rights reserved.
-        </div>
-      </div>
-
-      {/* Scroll to Top Button */}
-      <div
-        onClick={scrollToTop}
-        className={`fixed bottom-6 right-6 p-3 rounded-full bg-teal-100 text-teal-600 cursor-pointer transition-all duration-300 hover:bg-teal-600 hover:text-white hover:shadow-lg transform hover:scale-110 ${
-          isVisible
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 translate-y-10 pointer-events-none"
+      {/* Floating scroll to top */}
+      <button
+        type="button"
+        onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        aria-label="Scroll to top"
+        className={`fixed bottom-6 right-5 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-ink text-paper shadow-lg transition-all duration-300 hover:bg-clay md:right-8 ${
+          showTop
+            ? "translate-y-0 opacity-100"
+            : "pointer-events-none translate-y-4 opacity-0"
         }`}
       >
-        <IoIosArrowRoundUp className="text-3xl" />
-      </div>
+        <ArrowUp size={17} aria-hidden="true" />
+      </button>
     </footer>
   );
 };

@@ -1,5 +1,3 @@
-import React from 'react'
-
 import BlogHeroImage from '../Components/Blog/BlogHeroImage/BlogHeroImage'
 import Blogs from '../Components/Blog/Blogs/Blogs'
 import Title from '../utils/Title'

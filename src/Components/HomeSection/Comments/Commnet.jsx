@@ -1,39 +1,33 @@
-import React from "react";
-import { ImQuotesRight } from "react-icons/im";
+import { Quote } from "lucide-react";
 
 const Comments = () => {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-teal-100 rounded-full mb-6 shadow-sm">
-            <ImQuotesRight className="text-3xl text-teal-600" />
-          </div>
-
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-6">
-            What Readers{" "}
-            <span className="text-teal-600 relative inline-block">
-              Say
-              <span className="absolute bottom-0 left-0 w-full h-1 bg-teal-200 rounded-full -mb-2"></span>
-            </span>
-          </h2>
-
-          <div className="relative bg-white rounded-2xl shadow-lg p-6 md:p-8 lg:p-10 mt-8">
-            <div className="absolute top-4 left-4 opacity-5 text-6xl text-gray-800">
-              <ImQuotesRight />
-            </div>
-
-            <p className="text-gray-600 text-base md:text-lg leading-relaxed italic relative z-10">
-              "Sophia's blog is a treasure trove of inspiration and insight. Her
+    <section className="bg-ink py-20 text-paper md:py-28">
+      <div className="container-page">
+        <div className="mx-auto max-w-3xl text-center">
+          <Quote
+            size={40}
+            strokeWidth={1}
+            className="mx-auto text-blush"
+            aria-hidden="true"
+          />
+          <p className="mt-8 font-display text-2xl leading-snug text-paper sm:text-3xl md:text-[2.1rem] md:leading-[1.35]">
+            <em className="italic">
+              &ldquo;Sophia&apos;s blog is a treasure trove of inspiration. Her
               travel stories transport you to new worlds, while her tech tips
-              and wellness advice have genuinely improved my daily routine. I
-              always look forward to her latest posts. It's like getting a dose
-              of motivation straight to my inbox!"
-            </p>
-
-            <div className="mt-6 pt-4 border-t border-gray-100">
-              <p className="text-gray-800 font-semibold">— Emily Thompson</p>
-              <p className="text-sm text-gray-500 mt-1">Loyal Reader</p>
+              and wellness advice have genuinely improved my daily routine. It
+              is like a dose of motivation straight to my inbox.&rdquo;
+            </em>
+          </p>
+          <div className="mt-10 flex items-center justify-center gap-4">
+            <span className="flex h-11 w-11 items-center justify-center rounded-full border border-paper/20 font-display text-sm text-blush">
+              ET
+            </span>
+            <div className="text-left">
+              <p className="text-sm font-semibold text-paper">Emily Thompson</p>
+              <p className="text-[10px] uppercase tracking-[0.22em] text-paper/50">
+                Loyal reader, since 2021
+              </p>
             </div>
           </div>
         </div>

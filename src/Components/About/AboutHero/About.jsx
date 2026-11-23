@@ -1,141 +1,115 @@
-import React from "react";
-import { HiSun } from "react-icons/hi";
-import {
-  FaGlobe,
-  FaChartLine,
-  FaPenFancy,
-  FaBookOpen,
-  FaLanguage,
-} from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { ArrowUpRight, Quote } from "lucide-react";
 import image1 from "../../../assets/about/about-hero-01.jpg";
 import image2 from "../../../assets/about/about-hero-02.jpg";
 
-// Custom blob animation (adds a soft, floating background)
-const style = `
-  @keyframes blob {
-    0% { transform: translate(0px, 0px) scale(1); }
-    33% { transform: translate(30px, -50px) scale(1.1); }
-    66% { transform: translate(-20px, 20px) scale(0.9); }
-    100% { transform: translate(0px, 0px) scale(1); }
-  }
-  .animate-blob {
-    animation: blob 7s infinite;
-  }
-  .animation-delay-2000 {
-    animation-delay: 2s;
-  }
-  .animation-delay-4000 {
-    animation-delay: 4s;
-  }
-`;
+const stats = [
+  { value: "15", label: "Countries explored" },
+  { value: "10+", label: "Years in marketing" },
+  { value: "200", label: "Stories published" },
+  { value: "30", label: "Books a year" },
+  { value: "3", label: "Languages spoken" },
+];
 
 const About = () => {
-  const stats = [
-    { value: "15", label: "Countries Explored", icon: FaGlobe },
-    { value: "10+", label: "Years in Marketing", icon: FaChartLine },
-    { value: "200", label: "Blog Posts", icon: FaPenFancy },
-    { value: "30", label: "Books / Year", icon: FaBookOpen },
-    { value: "3", label: "Languages", icon: FaLanguage },
-  ];
-
   return (
     <>
-      <style>{style}</style>
+      <section className="relative overflow-hidden">
+        <div
+          className="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-clay/10 blur-3xl"
+          aria-hidden="true"
+        />
 
-      <section className="relative bg-gradient-to-br from-gray-50 via-white to-teal-50/30 overflow-hidden min-h-[calc(100vh-80px)] flex items-center justify-center">
-        {/* Decorative blobs */}
-        <div className="absolute top-0 left-0 w-72 h-72 bg-teal-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob"></div>
-        <div className="absolute top-0 right-0 w-72 h-72 bg-purple-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-0 left-1/2 w-72 h-72 bg-pink-200 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-4000"></div>
-
-        <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 text-center">
-          <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm text-teal-700 px-5 py-2 rounded-full text-sm font-medium mb-6 shadow-sm border border-teal-100 transition-all hover:shadow-md">
-            <HiSun className="text-xl" />
-            <span>About Me</span>
-          </div>
-
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 leading-tight mb-6">
-            From Marketing Maven to
-            <span className="text-teal-600 block mt-2">World Explorer</span>
-          </h1>
-
-          <div className="max-w-3xl mx-auto">
-            <p className="text-gray-600 text-base md:text-lg leading-relaxed">
-              Hi there! I’m{" "}
-              <span className="text-teal-600 font-semibold italic">
-                Sophia Ellis
-              </span>
-              , a marketing professional with a zest for life and an insatiable
-              curiosity for the world. This blog is where my love for
-              storytelling, discovery, and personal growth converge.
+        <div className="container-page relative grid items-center gap-14 py-16 md:py-24 lg:grid-cols-12">
+          <div className="lg:col-span-6">
+            <p className="eyebrow">About Sophia</p>
+            <h1 className="mt-5 text-[2.75rem] leading-[1.02] tracking-tight text-ink sm:text-6xl lg:text-[4.2rem]">
+              Marketing mind.
+              <br />
+              <em className="italic text-clay">Wanderer&apos;s heart.</em>
+            </h1>
+            <div className="mt-6 max-w-lg space-y-4 text-base leading-relaxed text-ink-soft md:text-lg">
+              <p>
+                I&apos;m Sophia Ellis — a marketing professional with a zest for
+                life and an insatiable curiosity about the world. This journal
+                is where storytelling, discovery, and personal growth converge.
+              </p>
+              <p>
+                For the past decade I&apos;ve built brands by day and collected
+                stories the rest of the time: from quiet kitchens in Lisbon to
+                the latest quietly brilliant gadget on my desk.
+              </p>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link to="/blog" className="btn-primary">
+                Read the journal
+                <ArrowUpRight size={14} aria-hidden="true" />
+              </Link>
+              <Link to="/contact" className="btn-outline">
+                Say hello
+              </Link>
+            </div>
+            <p className="mt-10 font-display text-3xl italic text-clay">
+              Sophia
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row justify-center items-center gap-6 mt-12 md:mt-16">
-            <div className="relative group w-full max-w-xs md:max-w-sm">
-              <div className="absolute -inset-1 bg-teal-300 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-300"></div>
+          <div className="lg:col-span-6">
+            <div className="relative mx-auto max-w-md lg:max-w-none lg:pl-10">
+              <div
+                className="absolute inset-0 translate-x-4 translate-y-4 rounded-[2rem] bg-cream"
+                aria-hidden="true"
+              />
               <img
                 src={image1}
-                alt="Travel adventure"
-                className="relative rounded-2xl shadow-xl w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
+                alt="Sophia travelling"
+                className="relative aspect-[4/5] w-full rounded-[2rem] object-cover shadow-[0_50px_90px_-60px_rgba(25,23,19,0.55)]"
               />
-            </div>
-            <div className="relative group w-full max-w-xs md:max-w-sm md:-mt-10 z-0">
-              <div className="absolute -inset-1 bg-purple-300 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-300"></div>
-              <img
-                src={image2}
-                alt="Marketing journey"
-                className="relative rounded-2xl shadow-xl w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
-              />
+              <div className="absolute -bottom-10 -left-4 w-40 overflow-hidden rounded-2xl border-4 border-paper shadow-xl sm:-left-8 sm:w-52">
+                <img
+                  src={image2}
+                  alt="Working on a new story"
+                  className="aspect-[4/3] w-full object-cover"
+                />
+              </div>
+              <span className="absolute -right-3 top-6 rounded-full border border-ink/10 bg-paper px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-ink-soft shadow-sm sm:-right-5">
+                10 years — one journal
+              </span>
             </div>
           </div>
         </div>
       </section>
 
-      <section className="py-16 md:py-24 bg-gradient-to-b from-gray-50 to-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8">
-            {stats.map((stat, idx) => {
-              const Icon = stat.icon;
-              return (
-                <div
-                  key={idx}
-                  className="group relative bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden transform hover:-translate-y-1"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-teal-50 to-purple-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                  <div className="relative p-6 text-center">
-                    <div className="inline-flex items-center justify-center w-12 h-12 bg-teal-100 rounded-full text-teal-600 mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <Icon className="text-2xl" />
-                    </div>
-                    <p className="text-4xl md:text-5xl font-bold text-teal-600 mb-2">
-                      {stat.value}
-                    </p>
-                    <p className="text-gray-600 font-medium">{stat.label}</p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
+      <section className="border-y border-ink/10 bg-cream/50 py-12">
+        <div className="container-page grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-3 lg:grid-cols-5">
+          {stats.map(({ value, label }) => (
+            <div key={label}>
+              <p className="font-display text-4xl text-ink md:text-5xl">
+                {value}
+              </p>
+              <p className="mt-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-soft/70">
+                {label}
+              </p>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Quote Section */}
-      <section className="py-16 md:py-20 bg-teal-50/30">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-8 md:p-10 border border-teal-100">
-            <svg
-              className="w-12 h-12 text-teal-300 mx-auto mb-4"
-              fill="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-            </svg>
-            <p className="text-xl md:text-2xl font-light italic text-gray-700 leading-relaxed">
-              “Travel makes one modest. You see what a tiny place you occupy in
-              the world.”
-            </p>
-            <p className="mt-4 text-teal-600 font-semibold">
-              — Gustave Flaubert
+      <section className="py-20 md:py-24">
+        <div className="container-page">
+          <div className="mx-auto max-w-3xl text-center">
+            <Quote
+              size={32}
+              strokeWidth={1}
+              className="mx-auto text-clay"
+              aria-hidden="true"
+            />
+            <blockquote className="mt-6 font-display text-2xl italic leading-snug text-ink sm:text-3xl md:text-4xl">
+              &ldquo;Travel makes one modest. You see what a tiny place you
+              occupy in the world.&rdquo;
+            </blockquote>
+            <p className="mt-6 text-[10px] font-semibold uppercase tracking-[0.24em] text-ink-soft/70">
+              Gustave Flaubert
             </p>
           </div>
         </div>

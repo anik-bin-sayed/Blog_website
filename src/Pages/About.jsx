@@ -1,5 +1,3 @@
-import React from 'react'
-
 import About from '../Components/About/AboutHero/About'
 import StorySection from '../Components/About/StorySection/StorySection'
 import BlogMission from '../Components/About/BlogMission/BlogMission'

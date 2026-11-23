@@ -1,23 +1,17 @@
-import React from "react";
-
-import "./Loader.css";
-const Loader = () => {
-  return (
-    <>
-      <div className="fixed inset-0 flex flex-col items-center justify-center bg-white/70 backdrop-blur-sm z-50">
-        <div className="relative">
-          <div className="w-12 h-12 rounded-full border-4 border-teal-200 border-t-teal-600 spinner"></div>
-
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-3 h-3 rounded-full bg-teal-400 animate-pulse"></div>
-          </div>
-        </div>
-        <p className="mt-4 text-sm text-gray-500 font-medium tracking-wide">
-          Loading...
-        </p>
-      </div>
-    </>
-  );
-};
+const Loader = () => (
+  <div
+    role="status"
+    aria-live="polite"
+    className="flex min-h-[50vh] flex-col items-center justify-center gap-4 bg-paper"
+  >
+    <div className="relative h-12 w-12">
+      <div className="absolute inset-0 rounded-full border-2 border-sand" />
+      <div className="absolute inset-0 animate-spin rounded-full border-2 border-transparent border-t-clay" />
+    </div>
+    <p className="text-[10px] font-semibold uppercase tracking-[0.3em] text-ink-soft/60">
+      Loading the journal
+    </p>
+  </div>
+);
 
 export default Loader;

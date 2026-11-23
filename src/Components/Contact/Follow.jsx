@@ -1,68 +1,39 @@
-import React from "react";
 import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+
+const socials = [
+  { Icon: FaFacebook, href: "#", label: "Facebook" },
+  { Icon: FaTwitter, href: "#", label: "Twitter" },
+  { Icon: FaInstagram, href: "#", label: "Instagram" },
+  { Icon: FaLinkedin, href: "#", label: "LinkedIn" },
+];
 
 const Follow = () => {
   return (
-    <section className="bg-gradient-to-b from-white to-gray-50 py-16 md:py-20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
-          {/* Email Section */}
-          <div className="text-center space-y-2">
-            <h2 className="text-sm uppercase tracking-wider font-semibold text-teal-600">
-              My Email
-            </h2>
-            <p className="text-xl md:text-2xl text-gray-800 font-medium">
-              info@sophiaellis.com
-            </p>
-          </div>
+    <section className="border-t border-ink/10 bg-cream/50 py-16 md:py-20">
+      <div className="container-page flex flex-col items-center justify-between gap-8 md:flex-row">
+        <div className="text-center md:text-left">
+          <p className="eyebrow">Keep in touch</p>
+          <a
+            href="mailto:info@sophiaellis.com"
+            className="mt-3 block font-display text-3xl text-ink transition-colors hover:text-clay md:text-4xl"
+          >
+            info@sophiaellis.com
+          </a>
+        </div>
 
-          <div className="w-12 h-px md:w-px md:h-12 bg-gray-300"></div>
-
-          {/* Social Section */}
-          <div className="text-center space-y-4">
-            <h2 className="text-sm uppercase tracking-wider font-semibold text-teal-600">
-              Follow Me
-            </h2>
-            <div className="flex justify-center gap-5">
-              {[
-                {
-                  Icon: FaFacebook,
-                  href: "#",
-                  label: "Facebook",
-                  color: "hover:text-blue-600",
-                },
-                {
-                  Icon: FaTwitter,
-                  href: "#",
-                  label: "Twitter",
-                  color: "hover:text-sky-500",
-                },
-                {
-                  Icon: FaInstagram,
-                  href: "#",
-                  label: "Instagram",
-                  color: "hover:text-pink-500",
-                },
-                {
-                  Icon: FaLinkedin,
-                  href: "#",
-                  label: "LinkedIn",
-                  color: "hover:text-blue-700",
-                },
-              ].map(({ Icon, href, label, color }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={`text-gray-600 text-2xl transition-all duration-200 ${color} hover:scale-110`}
-                  aria-label={label}
-                >
-                  <Icon />
-                </a>
-              ))}
-            </div>
-          </div>
+        <div className="flex items-center gap-3">
+          {socials.map(({ Icon, href, label }) => (
+            <a
+              key={label}
+              href={href}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={label}
+              className="flex h-11 w-11 items-center justify-center rounded-full border border-ink/15 text-ink-soft transition-colors hover:border-clay hover:bg-clay hover:text-paper"
+            >
+              <Icon size={16} aria-hidden="true" />
+            </a>
+          ))}
         </div>
       </div>
     </section>

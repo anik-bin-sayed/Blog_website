@@ -1,64 +1,52 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 import image from "../../../assets/introduce/who-am-img.jpg";
 import { introduce } from "../../../data/introduce";
 
 const Introduce = () => {
   return (
-    <section className="py-16 md:py-24 bg-gradient-to-br from-gray-50 to-teal-50/20">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative max-w-5xl mx-auto">
-          <div className="absolute -top-10 -right-10 w-64 h-64 bg-teal-100 rounded-full opacity-20 blur-3xl"></div>
-
-          <div className="relative bg-white rounded-2xl shadow-xl overflow-hidden">
-            <div className="grid md:grid-cols-2 gap-0">
-              <div className="p-6 md:p-8 lg:p-10">
-                {introduce.map((item, idx) => (
-                  <div key={idx}>
-                    <h2 className="text-3xl md:text-4xl font-bold italic text-gray-800 mb-4">
-                      {item.greetings}
-                    </h2>
-                    <div className="space-y-4 text-gray-600 leading-relaxed">
-                      {item.description.map((desc, i) => (
-                        <p key={i}>{desc}</p>
-                      ))}
-                    </div>
-                    <div className="mt-8">
-                      <Link
-                        to="/about"
-                        className="inline-flex items-center gap-2 text-teal-600 font-medium hover:text-teal-700 transition-colors group"
-                      >
-                        More About Me
-                        <svg
-                          className="w-4 h-4 transition-transform group-hover:translate-x-1"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M9 5l7 7-7 7"
-                          />
-                        </svg>
-                      </Link>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <div className="relative md:mt-0">
-                <div className="absolute inset-0 bg-gradient-to-br from-teal-100/50 to-transparent md:rounded-tr-2xl"></div>
-                <img
-                  src={image}
-                  alt="Who am I"
-                  className="w-full h-full object-cover md:rounded-tr-2xl md:rounded-bl-2xl"
-                  style={{ minHeight: "280px" }}
-                />
-              </div>
-            </div>
+    <section className="py-20 md:py-28">
+      <div className="container-page grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+        <div className="lg:col-span-5">
+          <div className="relative">
+            <div
+              className="absolute inset-0 -translate-x-4 translate-y-4 rounded-[2rem] bg-cream"
+              aria-hidden="true"
+            />
+            <img
+              src={image}
+              alt="Sophia Ellis"
+              loading="lazy"
+              className="relative aspect-[4/5] w-full rounded-[2rem] object-cover shadow-[0_40px_80px_-55px_rgba(25,23,19,0.55)]"
+            />
+            <span className="absolute -bottom-4 right-6 rounded-full border border-ink/10 bg-paper px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-ink-soft shadow-sm">
+              Est. 2016 — the journal
+            </span>
           </div>
+        </div>
+
+        <div className="lg:col-span-7">
+          <p className="eyebrow">Hello, I&apos;m Sophia</p>
+          <h2 className="mt-4 text-4xl leading-[1.05] tracking-tight text-ink sm:text-5xl">
+            The person behind
+            <br />
+            <em className="italic text-clay">the posts.</em>
+          </h2>
+
+          <div className="mt-6 space-y-4 text-base leading-relaxed text-ink-soft">
+            {introduce[0].description.map((paragraph) => (
+              <p key={paragraph.slice(0, 24)}>{paragraph}</p>
+            ))}
+          </div>
+
+          <p className="mt-8 font-display text-3xl italic text-clay">
+            Sophia
+          </p>
+
+          <Link to="/about" className="btn-outline mt-8">
+            Read my story
+            <ArrowUpRight size={14} aria-hidden="true" />
+          </Link>
         </div>
       </div>
     </section>

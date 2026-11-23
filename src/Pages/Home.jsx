@@ -1,4 +1,4 @@
-import React, { memo } from "react";
+import { memo } from "react";
 import HeroSection from "../Components/HomeSection/HeroSection/HeroSection";
 import FeatureBlog from "../Components/HomeSection/FeatureBlogs/FeatureBlog";
 import Passion from "../Components/HomeSection/Passion/Passion";

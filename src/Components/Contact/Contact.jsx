@@ -1,5 +1,21 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import {
+  Mail,
+  MapPin,
+  Clock,
+  Check,
+  Send,
+  Instagram,
+  Facebook,
+  Linkedin,
+} from "lucide-react";
 import image from "../../assets/Contact/contact-profile.png";
+
+const socials = [
+  { href: "https://www.instagram.com/", label: "Instagram", Icon: Instagram },
+  { href: "https://www.facebook.com/", label: "Facebook", Icon: Facebook },
+  { href: "https://www.linkedin.com/", label: "LinkedIn", Icon: Linkedin },
+];
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,168 +25,261 @@ const Contact = () => {
     message: "",
   });
   const [errors, setErrors] = useState({});
+  const [sent, setSent] = useState(false);
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.id]: e.target.value });
+  const handleChange = (event) => {
+    setFormData({ ...formData, [event.target.id]: event.target.value });
   };
 
   const validate = () => {
     const newErrors = {};
-    if (!formData.name.trim()) newErrors.name = "Name is required";
+    if (!formData.name.trim()) newErrors.name = "Please tell me your name.";
     if (!formData.email) {
-      newErrors.email = "Email is required";
+      newErrors.email = "An email address is required.";
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Invalid email address";
+      newErrors.email = "That email does not look right.";
     }
     if (formData.message.length < 10) {
-      newErrors.message = "Message must be at least 10 characters long";
+      newErrors.message = "A little more detail, please — at least 10 characters.";
     }
     return newErrors;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = (event) => {
+    event.preventDefault();
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
-    } else {
-      setErrors({});
-      alert("Form submitted successfully!");
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
+      return;
     }
+    setErrors({});
+    setSent(true);
+    setFormData({ name: "", email: "", subject: "", message: "" });
   };
 
   return (
-    <section className="bg-gradient-to-b from-white to-gray-50 py-16 md:py-24">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative flex flex-col items-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold italic text-gray-800 text-center relative z-10">
-            say{" "}
-            <span className="text-teal-600 relative inline-block">
-              hello!
-              <span className="absolute bottom-0 left-0 w-full h-1 bg-teal-200 rounded-full -mb-2"></span>
-            </span>
+    <section className="py-16 md:py-24">
+      <div className="container-page">
+        <div className="max-w-2xl">
+          <p className="eyebrow">Contact</p>
+          <h1 className="mt-4 text-5xl leading-[1.02] tracking-tight text-ink sm:text-6xl lg:text-7xl">
+            Say <em className="italic text-clay">hello.</em>
           </h1>
-          <div className="absolute top-10 left-1/2 transform -translate-x-1/2 translate-y-[-20px] md:translate-y-[-30px] z-0">
-            <img
-              src={image}
-              alt="Contact profile"
-              className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover border-4 border-white shadow-lg"
-            />
-          </div>
+          <p className="mt-5 max-w-xl text-base leading-relaxed text-ink-soft md:text-lg">
+            Questions, collaborations, or just a note about something you read —
+            I would love to hear from you. Every message reaches my actual
+            inbox, and I reply to as many as I can.
+          </p>
         </div>
 
-        <p className="text-center text-gray-600 text-base md:text-lg max-w-2xl mx-auto mt-20 mb-12">
-          Contact me to find out more or how I can help you better.
-        </p>
-
-        {/* Form */}
-        <form onSubmit={handleSubmit} className="max-w-2xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-            <div>
-              <label
-                htmlFor="name"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
-                Name <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                id="name"
-                value={formData.name}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-200 focus:border-teal-500 outline-none transition-all"
-                placeholder="Enter your name"
-              />
-              {errors.name && (
-                <p className="text-red-500 text-sm mt-1">{errors.name}</p>
-              )}
-            </div>
-            <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium text-gray-700 mb-1"
-              >
-                Email <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="email"
-                id="email"
-                value={formData.email}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-200 focus:border-teal-500 outline-none transition-all"
-                placeholder="Enter your email"
-              />
-              {errors.email && (
-                <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-              )}
-            </div>
-          </div>
-
-          <div className="mb-6">
-            <label
-              htmlFor="subject"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Subject
-            </label>
-            <input
-              type="text"
-              id="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-200 focus:border-teal-500 outline-none transition-all"
-              placeholder="Enter subject"
-            />
-          </div>
-
-          <div className="mb-8">
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium text-gray-700 mb-1"
-            >
-              Message <span className="text-red-500">*</span>
-            </label>
-            <textarea
-              id="message"
-              rows="5"
-              value={formData.message}
-              onChange={handleChange}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-200 focus:border-teal-500 outline-none transition-all"
-              placeholder="Write your message..."
-            ></textarea>
-            {errors.message && (
-              <p className="text-red-500 text-sm mt-1">{errors.message}</p>
-            )}
-          </div>
-
-          <div className="text-center">
-            <button
-              type="submit"
-              className="inline-flex items-center gap-2 px-8 py-3 bg-teal-600 text-white font-medium rounded-full shadow-md hover:bg-teal-700 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
-            >
-              Send
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
+        <div className="mt-12 grid gap-8 lg:grid-cols-12 lg:gap-10">
+          {/* Info */}
+          <aside className="lg:col-span-5">
+            <div className="flex h-full flex-col rounded-[2rem] border border-ink/10 bg-cream/60 p-6 md:p-8">
+              <div className="flex items-center gap-4">
+                <img
+                  src={image}
+                  alt="Sophia Ellis"
+                  className="h-16 w-16 rounded-full border-2 border-paper object-cover shadow-sm"
                 />
-              </svg>
-            </button>
+                <div>
+                  <p className="font-display text-xl text-ink">Sophia Ellis</p>
+                  <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-soft/70">
+                    Writer · Marketing strategist
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-8 space-y-5 border-t border-ink/10 pt-8">
+                <a
+                  href="mailto:info@sophiaellis.com"
+                  className="group flex items-start gap-4"
+                >
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-paper text-clay">
+                    <Mail size={16} aria-hidden="true" />
+                  </span>
+                  <span>
+                    <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-soft/60">
+                      Email
+                    </span>
+                    <span className="mt-1 block text-sm font-medium text-ink transition-colors group-hover:text-clay">
+                      info@sophiaellis.com
+                    </span>
+                  </span>
+                </a>
+
+                <div className="flex items-start gap-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-paper text-clay">
+                    <MapPin size={16} aria-hidden="true" />
+                  </span>
+                  <span>
+                    <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-soft/60">
+                      Based in
+                    </span>
+                    <span className="mt-1 block text-sm font-medium text-ink">
+                      Dhaka · often somewhere with a window seat
+                    </span>
+                  </span>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-paper text-clay">
+                    <Clock size={16} aria-hidden="true" />
+                  </span>
+                  <span>
+                    <span className="block text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-soft/60">
+                      Response time
+                    </span>
+                    <span className="mt-1 block text-sm font-medium text-ink">
+                      Usually within 48 hours
+                    </span>
+                  </span>
+                </div>
+              </div>
+
+              <div className="mt-auto pt-8">
+                <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-soft/60">
+                  Elsewhere
+                </p>
+                <div className="mt-3 flex gap-3">
+                  {socials.map(({ href, label, Icon }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={label}
+                      className="flex h-10 w-10 items-center justify-center rounded-full border border-ink/15 text-ink-soft transition-colors hover:border-clay hover:bg-clay hover:text-paper"
+                    >
+                      <Icon size={16} aria-hidden="true" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </aside>
+
+          {/* Form */}
+          <div className="lg:col-span-7">
+            <div className="rounded-[2rem] border border-ink/10 bg-card p-6 md:p-10">
+              {sent ? (
+                <div className="flex h-full min-h-64 flex-col items-center justify-center text-center">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full bg-cream text-clay">
+                    <Check size={24} aria-hidden="true" />
+                  </span>
+                  <h2 className="mt-5 text-3xl text-ink">Message received.</h2>
+                  <p className="mt-3 max-w-sm text-sm leading-relaxed text-ink-soft">
+                    Thank you for writing. I will get back to you as soon as I
+                    can — usually within two days.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={() => setSent(false)}
+                    className="btn-outline mt-8"
+                  >
+                    Send another note
+                  </button>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} noValidate>
+                  <div className="grid gap-5 sm:grid-cols-2">
+                    <div>
+                      <label
+                        htmlFor="name"
+                        className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-soft/70"
+                      >
+                        Name <span className="text-clay">*</span>
+                      </label>
+                      <input
+                        id="name"
+                        type="text"
+                        value={formData.name}
+                        onChange={handleChange}
+                        placeholder="Your name"
+                        className="field"
+                      />
+                      {errors.name && (
+                        <p className="mt-2 text-xs text-clay" role="alert">
+                          {errors.name}
+                        </p>
+                      )}
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="email"
+                        className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-soft/70"
+                      >
+                        Email <span className="text-clay">*</span>
+                      </label>
+                      <input
+                        id="email"
+                        type="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        placeholder="you@example.com"
+                        className="field"
+                      />
+                      {errors.email && (
+                        <p className="mt-2 text-xs text-clay" role="alert">
+                          {errors.email}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+
+                  <div className="mt-5">
+                    <label
+                      htmlFor="subject"
+                      className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-soft/70"
+                    >
+                      Subject
+                    </label>
+                    <input
+                      id="subject"
+                      type="text"
+                      value={formData.subject}
+                      onChange={handleChange}
+                      placeholder="What is this about?"
+                      className="field"
+                    />
+                  </div>
+
+                  <div className="mt-5">
+                    <label
+                      htmlFor="message"
+                      className="mb-2 block text-[10px] font-semibold uppercase tracking-[0.2em] text-ink-soft/70"
+                    >
+                      Message <span className="text-clay">*</span>
+                    </label>
+                    <textarea
+                      id="message"
+                      rows="5"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="Write your message here..."
+                      className="field resize-y"
+                    />
+                    {errors.message && (
+                      <p className="mt-2 text-xs text-clay" role="alert">
+                        {errors.message}
+                      </p>
+                    )}
+                  </div>
+
+                  <div className="mt-8 flex flex-wrap items-center justify-between gap-4">
+                    <p className="text-xs text-ink-soft/60">
+                      This form is a demo — nothing is sent to a server.
+                    </p>
+                    <button type="submit" className="btn-primary">
+                      Send message
+                      <Send size={13} aria-hidden="true" />
+                    </button>
+                  </div>
+                </form>
+              )}
+            </div>
           </div>
-        </form>
+        </div>
       </div>
     </section>
   );

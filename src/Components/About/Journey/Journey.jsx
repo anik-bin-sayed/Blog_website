@@ -1,43 +1,57 @@
-import React from "react";
 import image1 from "../../../assets/about/flavours-01.jpg";
 import image2 from "../../../assets/about/flavours-02.jpg";
 
 const Journey = () => {
   return (
-    <div className="bg-teal-50/30 py-20">
-      <div className="w-[90%] md:w-[80%] mx-auto flex flex-col lg:flex-row justify-evenly items-center gap-12 pt-10 pb-32">
-        <div className="w-full text-center lg:text-left">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl italic font-semibold leading-snug">
-            A Journey Through <br />
-            <span className="focused-text">Flavours</span>
-          </h1>
-          <div className="w-full flex flex-col gap-4 pt-8 text-sm md:text-base mx-auto lg:mx-0">
+    <section className="border-y border-ink/10 bg-cream/50 py-20 md:py-28">
+      <div className="container-page grid items-center gap-14 lg:grid-cols-12">
+        <div className="lg:col-span-6">
+          <p className="eyebrow">In the kitchen</p>
+          <h2 className="mt-4 text-4xl leading-[1.05] tracking-tight text-ink sm:text-5xl">
+            A journey through
+            <br />
+            <em className="italic text-clay">flavours.</em>
+          </h2>
+          <div className="mt-6 max-w-lg space-y-4 text-base leading-relaxed text-ink-soft md:text-lg">
             <p>
-              The kitchen is my creative sanctuary. Whether I’m experimenting
-              with new recipes or recreating family favorites, cooking allows me
-              to express my creativity and share love through food.
+              The kitchen is my creative sanctuary. Whether I&apos;m
+              experimenting with a new recipe or recreating a family favourite,
+              cooking is how I slow down and turn an ordinary Tuesday into
+              something worth remembering.
             </p>
             <p>
-              These passions are more than just hobbies—they’re integral to who
-              I am and what I bring to the table. Through this blog, I hope to
+              These passions are more than hobbies — they are part of who I am
+              and what I bring to the table. Through this journal, I hope to
               inspire you to explore your own interests and find joy in the
-              journey.
+              process, not just the result.
             </p>
           </div>
         </div>
 
-        <div className="relative flex justify-center mt-30 md:mt-30 lg:mt-20">
-          <img src={image2} alt="image2" className="w-[900px] h-auto" />
-          <div className="absolute top-[-10%] left-0 md:left-0 lg:right-[-10%] transform -translate-y-[65%] md:-translate-y-[20%] lg:-translate-y-[50%]">
-            <img
-              src={image1}
-              alt="image1"
-              className="w-[150px] md:w-[180px] lg:w-[200px] object-cover"
+        <div className="lg:col-span-6">
+          <div className="relative mx-auto max-w-md pb-10 pr-4 lg:ml-auto lg:mr-0">
+            <div
+              className="absolute inset-0 translate-x-4 translate-y-4 rounded-[2rem] bg-paper"
+              aria-hidden="true"
             />
+            <img
+              src={image2}
+              alt="A table set for a slow dinner"
+              loading="lazy"
+              className="relative aspect-[4/3] w-full rounded-[2rem] object-cover shadow-[0_40px_80px_-55px_rgba(25,23,19,0.5)]"
+            />
+            <div className="absolute -bottom-2 -left-2 w-36 overflow-hidden rounded-2xl border-4 border-paper shadow-xl sm:-left-6 sm:w-44">
+              <img
+                src={image1}
+                alt="Fresh ingredients on the counter"
+                loading="lazy"
+                className="aspect-square w-full object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

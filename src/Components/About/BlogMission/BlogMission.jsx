@@ -1,66 +1,46 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { ArrowDown } from "lucide-react";
 import image from "../../../assets/about/BlogMissionImage.png";
 
 const BlogMission = () => {
   return (
-    <section className="py-16 md:py-24 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row overflow-hidden rounded-2xl shadow-xl bg-gray-50">
-          <div className="w-full lg:w-1/2">
-            <div className="relative h-64 lg:h-full overflow-hidden">
-              <img
-                src={image}
-                alt="Blog Mission"
-                className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-r from-teal-500/20 to-transparent lg:bg-gradient-to-l"></div>
-            </div>
+    <section className="pb-20 md:pb-28">
+      <div className="container-page">
+        <div className="grid overflow-hidden rounded-[2rem] border border-ink/10 bg-card lg:grid-cols-2">
+          <div className="relative min-h-72 overflow-hidden">
+            <img
+              src={image}
+              alt="Sophia writing at her desk"
+              loading="lazy"
+              className="h-full w-full object-cover transition-transform duration-700 hover:scale-105"
+            />
+            <span className="absolute left-5 top-5 rounded-full bg-paper/90 px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-ink-soft backdrop-blur">
+              The mission
+            </span>
           </div>
 
-          <div className="w-full lg:w-1/2 flex flex-col justify-center p-8 md:p-12 lg:p-16 space-y-6">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
-              My Blog’s{" "}
-              <span className="text-teal-600 relative inline-block">
-                Mission
-                <span className="absolute bottom-0 left-0 w-full h-1 bg-teal-200 rounded-full -mb-2"></span>
-              </span>
+          <div className="flex flex-col justify-center p-8 md:p-14">
+            <p className="eyebrow">Why this journal exists</p>
+            <h2 className="mt-4 text-3xl leading-[1.08] tracking-tight text-ink sm:text-4xl md:text-5xl">
+              Inspire. Educate.
+              <br />
+              <em className="italic text-clay">Connect.</em>
             </h2>
-
-            <div className="space-y-4 text-gray-600 leading-relaxed">
+            <div className="mt-6 space-y-4 text-base leading-relaxed text-ink-soft">
               <p>
-                At the heart of this blog is a simple mission: to inspire,
-                educate, and connect. As a marketing professional with a passion
-                for travel, technology, and wellness, I aim to share valuable
-                insights and personal stories that resonate with you.
+                At the heart of this blog is a simple mission: to share the
+                insights and stories that make a life feel bigger on the inside.
+                Marketing lessons, travel notes, wellness rituals — all written
+                with the same question in mind: is this actually useful?
               </p>
               <p>
-                Join me in this journey of discovery as we explore the world,
-                embrace change, and strive for a balanced, fulfilling life.
+                This is not a highlight reel. It is a field notebook from a life
+                in progress, and you are welcome to read along.
               </p>
             </div>
-
-            <div className="pt-4">
-              <Link
-                to="/subscribe"
-                className="inline-flex items-center gap-2 px-6 py-3 bg-teal-600 text-white font-medium rounded-full shadow-md hover:bg-teal-700 hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
-              >
-                Subscribe Now
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </Link>
-            </div>
+            <a href="#newsletter" className="btn-primary mt-8 self-start">
+              Subscribe to the letter
+              <ArrowDown size={14} aria-hidden="true" />
+            </a>
           </div>
         </div>
       </div>

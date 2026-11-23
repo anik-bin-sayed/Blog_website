@@ -1,21 +1,138 @@
 @import "tailwindcss";
 
-html {
-  scroll-behavior: smooth;
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+
+  --color-paper: #f8f4ec;
+  --color-card: #fdfbf6;
+  --color-cream: #efe7d8;
+  --color-sand: #e5d9c5;
+  --color-ink: #191712;
+  --color-ink-soft: #5b544a;
+  --color-clay: #b0522a;
+  --color-clay-deep: #8a3d1d;
+  --color-blush: #e8b294;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper font-sans text-ink antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+
+  ::selection {
+    background-color: rgb(176 82 42 / 0.22);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-clay);
+    outline-offset: 3px;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-paper);
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-sand);
+    border: 2px solid var(--color-paper);
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-clay);
+  }
 }
 
-::-webkit-scrollbar-track {
-  background: #fff;
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-[84rem] px-5 sm:px-8 lg:px-12;
+  }
+
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-[0.3em] text-clay;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full border border-ink/10 bg-paper/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-ink-soft backdrop-blur;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-ink px-6 py-3.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-paper transition-colors duration-300 hover:bg-clay;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-ink/25 px-6 py-3.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink transition-colors duration-300 hover:border-ink hover:bg-ink hover:text-paper;
+  }
+
+  .btn-light {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-paper px-6 py-3.5 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink transition-colors duration-300 hover:bg-blush;
+  }
+
+  .field {
+    @apply w-full rounded-xl border border-ink/15 bg-paper px-4 py-3 text-sm text-ink outline-none transition placeholder:text-ink-soft/50 focus:border-clay focus:ring-2 focus:ring-clay/15;
+  }
+
+  .text-link {
+    @apply inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-ink transition-colors hover:text-clay;
+  }
+
+  .lede::first-letter {
+    float: left;
+    margin: 0.1rem 0.55rem 0 0;
+    padding-top: 0.25rem;
+    font-family: var(--font-display);
+    font-size: 4rem;
+    line-height: 0.8;
+    color: var(--color-clay);
+  }
 }
 
-::-webkit-scrollbar-thumb {
-  background: #0d9488;
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #4f46e5;
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 36s linear infinite;
+}
+
+.fade-up {
+  animation: fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee,
+  .fade-up {
+    animation: none;
+  }
 }

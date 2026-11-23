@@ -1,55 +1,48 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-
-// style
-import "./PageNotFound.css";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 
 const PageNotFound = () => {
-    return (
-        <div className="page-not-found w-full h-screen flex flex-col items-center justify-center  p-6 text-center">
-            {/* 404 Animated Text */}
-            <motion.h1
-                initial={{ scale: 0.8, opacity: 0 }}
-                animate={{ scale: 1, opacity: 1 }}
-                transition={{ duration: 0.6 }}
-                className="title text-6xl sm:text-8xl font-extrabold text-indigo-600 dark:text-indigo-400 drop-shadow-lg"
-            >
-                404
-            </motion.h1>
+  return (
+    <section className="relative overflow-hidden">
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[36rem] w-[36rem] -translate-x-1/2 -translate-y-1/2 rounded-full border border-ink/5"
+        aria-hidden="true"
+      />
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[26rem] w-[26rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-clay/5 blur-3xl"
+        aria-hidden="true"
+      />
 
-            {/* Subtitle */}
-            <motion.p
-                initial={{ y: 20, opacity: 0 }}
-                animate={{ y: 0, opacity: 1 }}
-                transition={{ delay: 0.2 }}
-                className="mt-4 text-lg sm:text-xl text-gray-900"
-            >
-                Oops! The page you’re looking for doesn’t exist.
-            </motion.p>
+      <div className="container-page relative flex min-h-[68vh] flex-col items-center justify-center py-24 text-center">
+        <p className="eyebrow">Error 404</p>
 
-            {/* Buttons */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-                className="mt-6 flex flex-col sm:flex-row gap-3"
-            >
-                <Link
-                    to="/"
-                    className="go-btn px-5 py-3 font-medium shadow hover:brightness-110 transition"
-                >
-                    Go Home
-                </Link>
-                <Link
-                    to="/contact"
-                    className="go-btn px-5 py-3 font-medium shadow hover:brightness-110 transition"
-                >
-                    Contact Support
-                </Link>
-            </motion.div>
+        <h1 className="fade-up mt-4 font-display text-[6.5rem] leading-none tracking-tight text-ink sm:text-[8rem] md:text-[10rem]">
+          4<span className="italic text-clay">0</span>4
+        </h1>
+
+        <div className="fade-up" style={{ animationDelay: "0.15s" }}>
+          <h2 className="text-3xl text-ink sm:text-4xl">
+            This page took a wrong turn.
+          </h2>
+          <p className="mx-auto mt-4 max-w-md text-sm leading-relaxed text-ink-soft md:text-base">
+            The link may be old, the story may have moved, or the address might
+            have a typo. Either way, there is plenty of good reading nearby.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
+            <Link to="/" className="btn-primary">
+              <ArrowLeft size={14} aria-hidden="true" />
+              Go home
+            </Link>
+            <Link to="/blog" className="btn-outline">
+              Read the journal
+              <ArrowRight size={14} aria-hidden="true" />
+            </Link>
+          </div>
         </div>
-    );
+      </div>
+    </section>
+  );
 };
 
 export default PageNotFound;
